@@ -34,6 +34,7 @@
 
     width: 75%;
     margin: auto;
+    max-width: 14rem;
 
     .link {
       margin: .25rem;
@@ -47,5 +48,12 @@
         fill: white;
       }
     }
+  }
+
+  @media screen
+  and (min-width: 500px)
+  and (min-aspect-ratio: 2 / 3)
+  {
+    .social-buttons { display: none; }
   }
 </style>

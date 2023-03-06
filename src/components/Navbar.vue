@@ -79,6 +79,7 @@
   }
 
   .nav-logo {
+    display: flex;
     span {
       font-weight: 900;
       font-size: 1.75rem;
@@ -87,6 +88,6 @@
       text-transform: uppercase;
     }
 
-    .technologies { display: none; }
+    .technologies { display: none; margin-left: 1rem; }
   }
 </style>

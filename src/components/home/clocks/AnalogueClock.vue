@@ -1,8 +1,12 @@
 <script lang="ts">
+  import Spinner from "../Spinner.vue"; 
+
   export default {
     props: {
       target: { type: Number, required: true },
     },
+
+    components: { Spinner },
 
     data: function() {
       return {
@@ -43,8 +47,9 @@
 </script>
 
 <template>
- <div class="count-down center" style="grid-area: count-down;">
-    <p class="title"><slot>clock</slot></p>
+ <div class="clock center" style="grid-area: clock;">
+    <Spinner/>
+    <p class="title"><slot>launch</slot></p>
 
     <ul class="numbers layout center">
       <li class="number">{{ diffTime.hours }}</li>
@@ -61,14 +66,16 @@
 </template>
 
 <style lang="scss" scoped>
-  .count-down {
+  .clock {
     width: 85%;
     margin: auto;
     aspect-ratio: 1;
-    font-size: 2.5vw;
+    font-size: 2.25vw;
+
+    background: white;
 
     border-radius: 100%;
-    background: rgba(255,255,255,0.15);
+    background:  rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 2rem rgba(0, 0, 0, .4);
 
     &::before {
@@ -95,7 +102,7 @@
     }    
 
     .layout {
-      width: 90%;
+      width: 80%;
       grid-template-rows: auto;
       grid-template-columns: 30% 40% 30%;
     }
@@ -123,4 +130,20 @@
       text-transform: uppercase;
     }
   }
+
+  @media screen
+  and (min-width: 500px)
+  and (min-aspect-ratio: 2 / 3)
+  {
+    .clock { display: none; }
+  }
+
+
+  @media screen
+  and (min-width: 650px)
+  and (min-aspect-ratio: 2 / 3)
+  {
+    .clock { display: grid; font-size: 1.8vw; }
+  }
+
 </style>
