@@ -3,7 +3,8 @@
   import ComingSoon from "@/components/home/ComingSoon.vue";
   import SocialButtons from "@/components/home/SocialButtons.vue";
   import Demacation from "@/components/home/Demacation.vue";
-  import CountDown from "@/components/home/CountDown.vue";
+  import AnalogueClock from "@/components/home/clocks/AnalogueClock.vue";
+  import DigitalClock from "@/components/home/clocks/DigitalClock.vue";
   import LogoSlot from "@/components/home/LogoSlot.vue";
   import MainContent from "@/components/home/MainContent.vue";
 </script>
@@ -20,7 +21,8 @@
     <ComingSoon/>
     <SocialButtons/>
     <Demacation/>
-    <CountDown :target="new Date(2023, 2, 15, 18, 30).getTime()"/>
+    <AnalogueClock :target="new Date(2023, 2, 15, 18, 30).getTime()"/>
+    <DigitalClock/>
     <LogoSlot/>
     <MainContent/>
   </main>
@@ -40,6 +42,7 @@
     width: calc(90% - var(--border-width)); 
     height: calc(90% - var(--border-width));
     margin-top: var(--navbar-height);
+    padding-bottom: max(2rem, calc(20vw / 3.5));
 
     backdrop-filter: blur(3px);
     background: rgba(0, 0, 0, .5);
@@ -52,9 +55,32 @@
 
     grid-template-areas: 
       "coming-soon coming-soon coming-soon"
-      "social-buttons demacation count-down"
+      "social-buttons demacation clock"
       "logo-slot logo-slot logo-slot"
       "main-content main-content main-content"
     ;
+  }
+
+  @media screen
+  and (min-width: 500px)
+  and (min-aspect-ratio: 2 / 3)
+  {
+    .app-container {
+      grid-template-rows: min-content auto min-content;
+      grid-template-columns: calc(75% - .5px) 1px calc(25% - .5px);
+
+      grid-template-areas: 
+        "coming-soon coming-soon coming-soon"
+        "logo-slot logo-slot logo-slot"
+        "main-content demacation clock"
+      ;    
+    }
+  }
+
+  @media screen
+  and (min-width: 650px) {
+    .app-container {
+      grid-template-columns: calc(60% - .5px) 1px calc(40% - .5px); 
+    }
   }
 </style>

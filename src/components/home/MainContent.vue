@@ -26,11 +26,12 @@
 
 <style lang="scss" scoped>
   .main-content { 
-    padding: 0 max(2rem, calc(20vw / 3.5)); 
+    width: min(87.5%, 350px);
+    margin: auto;
   }
 
   .header {
-    font-size: max(2.95vw, 11.5px);
+    font-size: clamp(12px, 3vw, 13.5px);
     color: white;
     text-align: center;
 
@@ -49,7 +50,7 @@
     }
 
     .main-header {
-      font-size: 2.7em;
+      font-size: 2.65em;
       font-weight: 700;
 
       line-height: 1.5;
@@ -58,7 +59,7 @@
     }
 
     .sub-header {
-      font-size: 1.16em;
+      font-size: 1.14em;
       font-weight: 600;
       font-variant: small-caps;
 
@@ -78,7 +79,7 @@
 
   .contact-button {
     width: 100%;
-    margin: 2rem 0;
+    margin-top: 2rem;
     aspect-ratio: 5.75 / 1;
 
     font-size: 2rem;
@@ -88,11 +89,29 @@
     
     
     cursor: pointer;
-    transition: all .2s ease;
+    transition: all .05s ease;
 
     background: var(--accent-opacity-50);
     border-bottom: 5px solid var(--accent);
 
-    &:hover { color: white; }
+    &:hover { background: var(--accent); }
+  }
+
+  @media screen
+  and (min-width: 500px)
+  and (min-aspect-ratio: 2 / 3)
+  {
+    .header {
+      font-size: min(2.25vw, 13.95px);
+    }
+  }
+
+  @media screen
+  and (min-width: 650px)
+  and (min-aspect-ratio: 2 / 3)
+  {
+    .header {
+      font-size: min(1.85vw, 13.95px);
+    }
   }
 </style>
