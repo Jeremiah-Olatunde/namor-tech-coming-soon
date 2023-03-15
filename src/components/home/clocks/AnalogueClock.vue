@@ -69,6 +69,7 @@
   .clock {
     width: 85%;
     margin: auto;
+    margin-right: 0;
     aspect-ratio: 1;
     font-size: 2.25vw;
 
@@ -132,18 +133,7 @@
   }
 
   @media screen
-  and (min-width: 500px)
-  and (min-aspect-ratio: 2 / 3)
-  {
+  and (min-width: 600px) {
     .clock { display: none; }
   }
-
-
-  @media screen
-  and (min-width: 650px)
-  and (min-aspect-ratio: 2 / 3)
-  {
-    .clock { display: grid; font-size: 1.8vw; }
-  }
-
 </style>

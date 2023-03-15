@@ -7,8 +7,27 @@
   --text-color: white;
 }
 
+html { font-size: 10px; }
 
-html { font-size: 62.5%; }
+@media screen
+and (orientation: portrait)
+and (min-height: 1100px) {
+  html { font-size: 10.5px; }
+}
+
+@media screen
+and (orientation: portrait)
+and (min-height: 1250px) {
+  html { font-size: 13px; }
+}
+
+@media screen
+and (orientation: landscape)
+and (min-width: 1550px) {
+  html { font-size: 14px; }
+}
+
+
 
 body {
   background-size: cover;

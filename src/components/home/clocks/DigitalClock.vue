@@ -41,6 +41,7 @@
     width: 100%;
     margin: auto;
     font-size: 1.45vw;
+    
   }
 
   .box {
@@ -77,11 +78,11 @@
   }
 
 
-  @media screen
-  and (min-width: 650px)
-  and (min-aspect-ratio: 2 / 3)
-  {
-    .clock { display: none; }
-  }
+  // @media screen
+  // and (min-width: 650px)
+  // and (min-aspect-ratio: 2 / 3)
+  // {
+  //   .clock { display: none; }
+  // }
 
 </style>

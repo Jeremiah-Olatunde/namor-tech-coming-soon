@@ -5,7 +5,16 @@
   import ContactIcon from "./icons/ContactIcon.vue";
   
   export default {
-    components: { HomeIcon, InfoIcon, ContactIcon }
+    components: { HomeIcon, InfoIcon, ContactIcon },
+    emits: ["click"],
+    data: function(){
+      return { page: "home" }
+    },
+    methods: {
+      click(page: "home" | "about" | "contact"){
+        this.$emit('click', this.page = page);
+      }
+    }
   }
 </script>
 
@@ -13,13 +22,13 @@
   <div class="navbar">
     <nav class="nav">
       <ul class="nav-list">
-        <li class="active nav-item">
+        <li class="nav-item" @click="click('home')" :class="{ active: page == 'home' }">
           <HomeIcon class="icon"/>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" @click="click('about')" :class="{ active: page == 'about' }">
           <InfoIcon class="icon"/>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" @click="click('contact')" :class="{ active: page == 'contact' }">
           <ContactIcon class="icon"/>
         </li>    
       </ul>
@@ -84,10 +93,15 @@
       font-weight: 900;
       font-size: 1.75rem;
       color: var(--accent);
-      letter-spacing: 1rem;;
+      letter-spacing: .5rem;;
       text-transform: uppercase;
     }
 
     .technologies { display: none; margin-left: 1rem; }
+  }
+
+  @media screen
+  and (min-width: 1100px) {
+    .nav-logo .technologies { display: block; }
   }
 </style>

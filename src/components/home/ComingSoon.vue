@@ -35,8 +35,8 @@
     align-items: center;
     justify-content: space-between;
 
-    width: 90%;
-    margin: 2rem auto;
+    width: 100%;
+    margin: 1rem auto;
     border-bottom: .3rem solid var(--accent-opacity-50);
 
     .text {
@@ -47,6 +47,7 @@
       opacity: .4;
       text-align: right;
       color: var(--accent);
+      padding-bottom: .5rem;
     }
 
     .social-links {
@@ -67,11 +68,7 @@
   }
 
   @media screen
-  and (min-width: 500px)
-  and (min-aspect-ratio: 2 / 3) {
-    .coming-soon { 
-      flex-direction: row;
-      .social-links { display: flex; } 
-    }
+  and (min-width: 600px) {
+    .coming-soon { margin-bottom: 3rem; }
   }
 </style>

@@ -21,8 +21,8 @@
     <a href="#" class="link center"><InstagramIcon class="icon"/></a>
     <a href="#" class="link center"><FacebookIcon class="icon"/></a>
     <a href="#" class="link center"><PhoneIcon class="icon"/></a>
-    <a href="#" class="link center"><EmailIcon class="icon"/></a>
-    <a href="#" class="link center"><ContactIcon class="icon"/></a>
+    <a href="#" class="link center hidden"><EmailIcon class="icon"/></a>
+    <a href="#" class="link center hidden"><ContactIcon class="icon"/></a>
   </div>
 </template>
 
@@ -32,9 +32,9 @@
     grid-template-rows: auto auto;
     grid-template-columns: auto auto auto;
 
-    width: 75%;
+    width: 80%;
+    max-width: 16rem;
     margin: auto;
-    max-width: 14rem;
 
     .link {
       margin: .25rem;
@@ -51,9 +51,15 @@
   }
 
   @media screen
-  and (min-width: 500px)
-  and (min-aspect-ratio: 2 / 3)
+  and (min-width: 600px)
   {
-    .social-buttons { display: none; }
+    .social-buttons {
+      grid-template-rows: auto;
+      grid-template-columns: auto auto auto auto;  
+      margin-bottom: 3rem;
+      margin-top: .5rem;
+    }
+
+    .hidden { display: none; }
   }
 </style>
