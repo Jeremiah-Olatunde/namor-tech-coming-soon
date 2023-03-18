@@ -1,5 +1,5 @@
 <script lang="ts">
-  import PenPaperIcon from "../icons/PenPaperIcon.vue";
+  import PenPaperIcon from "@/components/icons/PenPaperIcon.vue";
 
   export default {
     components: { PenPaperIcon }
@@ -90,6 +90,11 @@
       color: black;
       text-transform: uppercase;
     }
+  }
+
+  @media screen and (max-height: 700px){
+    .register { margin-bottom: 1rem; }
+    .form { display: none; }
   }
 
   @media screen

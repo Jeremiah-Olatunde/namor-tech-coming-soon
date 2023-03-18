@@ -1,11 +1,11 @@
 
 <script lang="ts">
-  import EmailIcon from "../icons/EmailIcon.vue";
-  import PhoneIcon from "../icons/PhoneIcon.vue";
-  import ContactIcon from "../icons/ContactIcon.vue";
-  import InstagramIcon from "../icons/InstagramIcon.vue";
-  import FacebookIcon from "../icons/FacebookIcon.vue";
-  import WhatsAppIcon from "../icons/WhatsAppIcon.vue";
+  import EmailIcon from "@/components/icons/EmailIcon.vue";
+  import PhoneIcon from "@/components/icons/PhoneIcon.vue";
+  import ContactIcon from "@/components/icons/ContactIcon.vue";
+  import InstagramIcon from "@/components/icons/InstagramIcon.vue";
+  import FacebookIcon from "@/components/icons/FacebookIcon.vue";
+  import WhatsAppIcon from "@/components/icons/WhatsAppIcon.vue";
 
   export default {
     components: {

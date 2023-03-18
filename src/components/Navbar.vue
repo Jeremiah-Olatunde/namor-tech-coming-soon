@@ -1,11 +1,11 @@
 
 <script lang="ts">
   import HomeIcon from "./icons/HomeIcon.vue";
-  import InfoIcon from "./icons/InfoIcon.vue";
+  import InfoCircleIcon from "./icons/InfoCircleIcon.vue";
   import ContactIcon from "./icons/ContactIcon.vue";
   
   export default {
-    components: { HomeIcon, InfoIcon, ContactIcon },
+    components: { HomeIcon, InfoCircleIcon, ContactIcon },
     emits: ["click"],
     data: function(){
       return { page: "home" }
@@ -26,7 +26,7 @@
           <HomeIcon class="icon"/>
         </li>
         <li class="nav-item" @click="click('about')" :class="{ active: page == 'about' }">
-          <InfoIcon class="icon"/>
+          <InfoCircleIcon class="icon"/>
         </li>
         <li class="nav-item" @click="click('contact')" :class="{ active: page == 'contact' }">
           <ContactIcon class="icon"/>

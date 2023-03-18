@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Spinner from "../Spinner.vue"; 
+  import Spinner from "@/components/utils/Spinner.vue"; 
 
   export default {
     props: {
