@@ -1,0 +1,20 @@
+@font-face {
+  font-family: Digital-Italic;
+  src: url("./Digital-Italic.ttf");
+}
+
+@font-face {
+  font-family: Digital-Mono-Italic;
+  src: url("./Digital-Mono-Italic.ttf");
+}
+
+@font-face {
+  font-family: Digital-Mono;
+  src: url("./Digital-Mono.ttf");
+}
+
+@font-face {
+  font-family: Digital;
+  src: url("./Digital-Regular.ttf");
+}
+
