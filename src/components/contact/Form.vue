@@ -1,4 +1,6 @@
 <script lang="ts">
+  import emailjs from '@emailjs/browser';
+
   export default {
     mounted: function(){
       const elements = document.getElementsByClassName("fit-to-container");
@@ -11,6 +13,19 @@
       });
 
       for(const elt of elements) observer.observe(elt);
+    },
+
+    methods: {
+      sendEmail() {
+        emailjs.sendForm('contact_service', 'contact_form_namor', this.$refs.form as HTMLFormElement, 'AZZHVmu8BUnFltQfO')
+          .then((result) => {
+            alert('Success! Your message has been received by Namor Technologies');
+            console.log('SUCCESS!', result.text); 
+          }, (error) => {
+            alert('FAILED...');
+            console.log('FAILED...', error.text)
+          })
+      }
     }
   }
 </script>
@@ -20,11 +35,11 @@
     <header class="header">
       <div class="sub-header fit-to-container" data-fit-ratio="0.0445">we would love to hear from you</div>
     </header>
-    <form action="" class="form">
-      <input type="text" class="form-input name" placeholder="NAME"/>
-      <input type="text" class="form-input email" placeholder="EMAIL"/>
-      <textarea class="form-input message" placeholder="YOUR MESSAGE HERE"></textarea>
-      <input type="submit" class="submit" value="sumbit!"/>
+    <form ref="form" @submit.prevent="sendEmail" action="" class="form">
+      <input type="text" class="form-input" name="user_name" placeholder="NAME"/>
+      <input type="text" class="form-input" name="user_email" placeholder="EMAIL"/>
+      <textarea class="form-input" name="message" placeholder="YOUR MESSAGE HERE"></textarea>
+      <input type="submit" class="submit" value="submit!"/>
     </form>
   </section>
 </template>

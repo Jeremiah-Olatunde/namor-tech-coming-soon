@@ -1,8 +1,21 @@
 <script lang="ts">
   import PenPaperIcon from "@/components/icons/PenPaperIcon.vue";
+  import emailjs from '@emailjs/browser';
 
   export default {
-    components: { PenPaperIcon }
+    components: { PenPaperIcon },
+    methods: {
+      sendEmail() {
+        emailjs.sendForm('contact_service', 'contact_form_namor_reply', this.$refs.form as HTMLFormElement, 'AZZHVmu8BUnFltQfO')
+          .then((result) => {
+            alert('Success! You have successfully subscribed!');
+            console.log('SUCCESS!', result.text); 
+          }, (error) => {
+            alert('FAILED...');
+            console.log('FAILED...', error.text)
+          })
+      }
+    }
   }
 </script>
 
@@ -16,8 +29,8 @@
       <span style="letter-spacing: 0;">&mdash;&mdash;</span> be notified when we launch
     </div>
     <p class="text">Type your email below to be recieve updates form namor technologies</p>
-    <form action="" class="form">
-      <input type="text" placeholder="your@email.com" class="email">
+    <form ref="form" @submit.prevent="sendEmail" action="" class="form">
+      <input type="text" placeholder="your@email.com" name="user_email" class="email">
       <input type="submit" value="ok" class="submit">
     </form>
   </section>
