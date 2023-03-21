@@ -14,11 +14,29 @@
   import {} from '@/components/about/scripts/index';
 
   export default defineComponent({
-      components: {
-        Image, Content, Hex,
-        TwitterIcon, FacebookIcon, InstagramIcon, InfoIcon
+    data() {
+      return {
+        index: 0,
       }
-    });
+    },
+    components: {
+      Image, Content,
+      TwitterIcon, FacebookIcon, InstagramIcon, InfoIcon
+    },
+
+    computed: {
+      focusIndex() {
+        return this.index;
+      }
+    },
+
+    mounted() {
+      setInterval(() => {
+        this.index = [...document.body.querySelectorAll('.carousel .item')].findIndex(curr => curr.hasAttribute('data-focus'));
+      })
+    }
+  });
+
 </script>
 
 <template>
@@ -69,26 +87,36 @@
       </div>
 
       <ul class="icon-list">
-        <li class="item">
-          <div class="icon"><TwitterIcon></TwitterIcon></div>
-          <div class="label">twitter</div>
-        </li>
-        <li class="item">
-          <div class="icon"><FacebookIcon></FacebookIcon></div>
-          <div class="label">facebook</div>
-        </li>
-        <li class="item">
-          <div class="icon"><InstagramIcon></InstagramIcon></div>
-          <div class="label">instagram</div>
-        </li>
+        <div class="item-container">
+          <li class="item one">
+            <div class="icon"><TwitterIcon></TwitterIcon></div>
+            <div class="label">twitter</div>
+          </li>
+        </div>
+
+        <div class="item-container">
+          <li class="item two">
+            <div class="icon"><FacebookIcon></FacebookIcon></div>
+            <div class="label">facebook</div>
+          </li>
+        </div>
+
+        <div class="item-container">
+          <li class="item three">
+            <div class="icon"><InstagramIcon></InstagramIcon></div>
+            <div class="label">instagram</div>
+          </li>
+        </div>
       </ul>
 
       <InfoIcon class="corner-icon"/>
 
       <div class="pagination">
-        <div class="circle active"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
+        <div class="circle" :class="{ active: !(focusIndex - 0) }"></div>
+        <div class="circle" :class="{ active: !(focusIndex - 1) }"></div>
+        <div class="circle" :class="{ active: !(focusIndex - 2) }"></div>
+        <div class="circle" :class="{ active: !(focusIndex - 3) }"></div>
+        <div class="circle" :class="{ active: !(focusIndex - 4) }"></div>
       </div>
     </Image>
 
@@ -98,10 +126,11 @@
       <!-- <template #sub-header>dependable and reliable</template> -->
       <template #main-header>who we are</template>
       <template #main-text>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat quae odit min  Quaerat quae odit minima obcaecati dolorum, pariatur dicta ad illo incidunt. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi labore eaque d
+          Namor Technologies Limited is a private company founded on March 23, 2010. It is led by a team of dedicated professionals with more than 34 years of combined industry experience
+          mainly in Oilfield Services, Construction, Engineering and Procurement.
       </template>
       <template #highlighted-text>choose us, you will not regret it!</template>
-      <template #button>book a call!</template>
+      <template href="+2348034056935" #button>book a call!</template>
     </Content>
   </div>
 </template>
@@ -247,18 +276,50 @@
       aspect-ratio: 2;
       border-radius: 5px;
       background: var(--accent); 
+      transition: all 1s;
     }
   }
 
   .icon-list {
     top: 0;
     position: absolute; 
-    margin: 2rem; 
+    margin: 2rem;
+    display: flex;
+    height: 8rem;
+    width: 11rem;
+    flex-direction: column;
+    justify-content: space-around;
 
-    .item {
+    .item-container {
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
       display: flex;
-      margin-top: 1rem;  
+      align-items: center;
       &:first-child { margin-top: 0; }
+
+      .item {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        padding: 2% 0;
+        transform: translateY(100%);
+        animation: animate-three 0.7s ease-in;
+        animation-fill-mode: forwards;
+      }
+
+      .one {
+        animation-delay: 0.3s;
+      }
+
+      .two {
+        animation-delay: 0.4s;
+      }
+
+      .three{
+        animation-delay: 0.5s;
+      }
     }
     
     .icon {
@@ -326,6 +387,13 @@
     from {width: 0;}
     to {
       width: 100%;
+    }
+  }
+
+  @keyframes animate-three {
+    from {transform: translateY(100%);}
+    to {
+      transform: translateY(0%);
     }
   }
 
