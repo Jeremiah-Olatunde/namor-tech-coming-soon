@@ -11,7 +11,7 @@
     components: { Navbar, Home, About, Contact },
 
     data: function() {
-      return { page: "home" as "home" | "about" | "contact" }
+      return { page: "contact" as "home" | "about" | "contact" }
     },
   });
 </script>
@@ -54,10 +54,23 @@
     width: calc(90% - var(--border-width)); 
     height: calc(90% - var(--border-width));
     margin-top: var(--navbar-height);
+    padding: 2rem;
 
     backdrop-filter: blur(3px);
     background: rgba(0, 0, 0, .5);
     border: var(--border-width) solid var(--accent-opacity-75);    
     box-shadow: 0 0 2rem rgba(0, 0, 0, .7);
+  }
+
+  @media screen
+  and (min-width: 600px)
+  {
+    .app-container { padding: 3rem; }
+  }
+
+  @media screen
+  and (min-width: 1100px)
+  {
+    .app-container { padding: 5rem; }
   }
 </style>

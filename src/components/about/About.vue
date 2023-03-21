@@ -4,6 +4,8 @@
   import Content from "@/components/utils/Content.vue";
   import Image from "@/components/utils/Image.vue";
 
+  import Hex from "./components/Hex.vue";
+
   import TwitterIcon from "@/components/icons/TwitterIcon.vue";
   import InstagramIcon from "@/components/icons/InstagramIcon.vue";
   import FacebookIcon from "@/components/icons/FacebookIcon.vue";
@@ -13,7 +15,7 @@
 
   export default defineComponent({
       components: {
-        Image, Content,
+        Image, Content, Hex,
         TwitterIcon, FacebookIcon, InstagramIcon, InfoIcon
       }
     });
@@ -90,8 +92,10 @@
       </div>
     </Image>
 
+    <Hex></Hex>
+
     <Content>
-      <template #sub-header>dependable and reliable</template>
+      <!-- <template #sub-header>dependable and reliable</template> -->
       <template #main-header>who we are</template>
       <template #main-text>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat quae odit min  Quaerat quae odit minima obcaecati dolorum, pariatur dicta ad illo incidunt. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi labore eaque d
@@ -106,14 +110,39 @@
   .about {
     width: 100%;
     height: 100%;
-    padding: 2rem;
     position: relative;
 
     display: grid;
     grid-row-gap: 2rem;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 100%;
     grid-template-rows:  auto min-content;
-    grid-template-areas: "image image" "main-content main-content" ;
+    grid-template-areas: "image" "main-content" ;
+  }
+
+  @media screen
+  and (min-width: 600px)
+  {
+    .about {
+      grid-template-columns: 60% 40%;
+      grid-template-areas: "image image" "main-content hex-grid" ;
+    }
+  }
+
+  @media screen
+  and (min-width: 1100px)
+  {
+    .home {
+      padding-bottom: 5rem;
+      grid-template-rows: min-content min-content min-content auto;
+      grid-template-columns: calc(55% - .5px) 1px calc(45% - .5px);
+
+      grid-template-areas: 
+        "coming-soon coming-soon coming-soon"
+        "main-content demacation clock"
+        "main-content demacation social-buttons"
+        "main-content demacation register"
+      ;    
+    }
   }
 
   .corner-icon {

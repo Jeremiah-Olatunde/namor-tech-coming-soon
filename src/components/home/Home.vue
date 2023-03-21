@@ -6,16 +6,20 @@
   import Demacation from "./components/Demacation.vue";
   import LogoSlot from "./components/LogoSlot.vue";
   import Register from "./components/Register.vue";
+  import Hex from "./components/Hex.vue";
 
   import Content from "@/components/utils/Content.vue";
   import AnalogueClock from "@/components/utils/AnalogueClock.vue";
   import NumericClock from "@/components/utils/NumericClock.vue";
 
+  import PlusIcon from "@/components/icons/PlusIcon.vue";
+
   export default defineComponent({
     components: {
       LogoSlot, Register,
       ComingSoon, SocialButtons, Demacation,
-      AnalogueClock, NumericClock, Content
+      AnalogueClock, NumericClock, Content, Hex,
+      PlusIcon
     }
   });
 </script>
@@ -38,6 +42,7 @@
       <template #highlighted-text>choose us, you will not regret it!</template>
       <template #button>reach out!</template>
     </Content>
+    <Hex></Hex>
   </div>
 </template>
 
@@ -45,7 +50,6 @@
   .home {
     width: 100%;
     height: 100%;
-    padding: 1rem 5%;
 
     display: grid;
     grid-template-rows: min-content min-content min-content auto min-content;
@@ -72,7 +76,7 @@
         "register demacation clock"
         "register demacation social-buttons"
         "logo-slot logo-slot logo-slot"
-        "main-content main-content ."
+        "main-content main-content hex-grid"
       ;    
     }
   }

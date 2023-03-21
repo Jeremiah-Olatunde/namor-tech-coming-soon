@@ -1,6 +1,10 @@
 <script async src="" lang="ts">
-  import Form from "./Form.vue";
+  import Form from "./components/Form.vue";
+  import Hex from "./components/Hex.vue";
+  import Map from "./components/Map.vue";
+
   import Image from "@/components/utils/Image.vue";
+  import Demacation from "@/components/utils/Demacation.vue";
 
   import PhoneIcon from "@/components/icons/PhoneIcon.vue";
   import LocationIcon from "@/components/icons/LocationIcon.vue";
@@ -17,41 +21,16 @@
       document.body.appendChild(google_maps);
     },
 
-    components: { Form, Map, Image, EmailIcon, PhoneIcon, MagnifyIcon, LocationIcon } 
+    components: { Form, Map, Image, EmailIcon, PhoneIcon, MagnifyIcon, LocationIcon, Hex, Demacation } 
   }
 </script>
 
 <template>
-  <div class="contact" scoped>
-    <Image>
-      <div id="map"></div>
-      <ul class="icon-list">
-        <li class="item">
-          <a class="item-link">
-            <div class="icon"><PhoneIcon/></div>
-            <div class="label">08023039899</div>
-          </a>
-        </li>
-
-        <li class="item">
-          <a class="item-link">
-            <div class="icon"><EmailIcon/></div>
-            <div class="label">namortech@yahoo.com</div>
-          </a>
-        </li>
-
-        <li class="item">
-          <a class="item-link">
-            <div class="icon"><LocationIcon/></div>
-            <div class="label">30, Off Chevron Drive, Lekki, Lagos</div>
-          </a>
-        </li>
-      </ul>
-
-      <!-- <MagnifyIcon class="corner-icon"/> -->
-    </Image>
-
+  <div class="contact">
+    <Map></Map>
+    <Demacation/>
     <Form style="grid-area: form;"></Form>
+    <Hex style="grid-area: hex-grid"></Hex>
   </div>
 </template>
 
@@ -59,56 +38,33 @@
   .contact {
     display: grid;
     height: 100%;
-    padding: 2rem;
     grid-template-rows: auto min-content;
+    row-gap: 2rem;
     grid-template-areas: "map" "form";
   }
 
-  // .corner-icon {
-  //   top: 0;
-  //   right: 0;
-  //   height: 3rem;
-  //   position: absolute;
-  //   aspect-ratio: 1;
-  //   fill: var(--accent-opacity-75);
-  //   margin: 2rem;
-  // }
-
-  .icon-list {
-    position: absolute; 
-    bottom: 0;
-    margin: 2rem; 
-
-    .item {
-      color: rgba(255, 191, 0);
-      margin-top: 1rem;  
-      &:first-child { margin-top: 0; }
-
-      .item-link {
-        display: flex;
-        text-decoration: none;
-      }
+  @media screen
+  and (min-width: 600px)
+  {
+    .contact {
+      grid-template-columns: 60% 40%;
+      grid-template-areas: "map map" "form hex-grid" ;
     }
-    
-    .icon {
-      aspect-ratio: 1;
-      fill: var(--accent);
-      vertical-align: bottom;
-      cursor: pointer;  
-      height: 1.5rem;
-      margin-right: .5rem;
-    }
-
-    .label {
-      font-variant: small-caps;
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing:  .1rem;
-    }
+    .demacation { display: none; }
   }
 
-  #map {
-    width: 100%;
-    height: 100%;
+  @media screen
+  and (min-width: 1100px)
+  { 
+
+    .contact {
+      --gap: 5rem;
+      grid-template-rows: 100%;
+      column-gap: var(--gap);
+      grid-template-columns: calc(35% - .5px - var(--gap)) 1px calc(65% - .5px - var(--gap));
+      grid-template-areas: "form demacation map" ;
+    }
+    .demacation { display: block; }
+
   }
 </style>

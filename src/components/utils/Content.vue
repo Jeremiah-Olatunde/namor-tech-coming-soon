@@ -123,7 +123,7 @@
 
   .button {
     width: 100%;
-    margin: 2rem 0 1rem;
+    margin: 2rem 0 0;
     aspect-ratio: 6 / 1;
 
     font-size: 2rem;
