@@ -21,7 +21,7 @@
     },
     components: {
       Image, Content,
-      TwitterIcon, FacebookIcon, InstagramIcon, InfoIcon
+      TwitterIcon, FacebookIcon, InstagramIcon, InfoIcon, Hex
     },
 
     computed: {
@@ -120,7 +120,7 @@
       </div>
     </Image>
 
-    <Hex></Hex>
+    <Hex/>
 
     <Content>
       <!-- <template #sub-header>dependable and reliable</template> -->
@@ -152,25 +152,8 @@
   and (min-width: 600px)
   {
     .about {
-      grid-template-columns: 60% 40%;
+      grid-template-columns: 50% 50%;
       grid-template-areas: "image image" "main-content hex-grid" ;
-    }
-  }
-
-  @media screen
-  and (min-width: 1100px)
-  {
-    .home {
-      padding-bottom: 5rem;
-      grid-template-rows: min-content min-content min-content auto;
-      grid-template-columns: calc(55% - .5px) 1px calc(45% - .5px);
-
-      grid-template-areas: 
-        "coming-soon coming-soon coming-soon"
-        "main-content demacation clock"
-        "main-content demacation social-buttons"
-        "main-content demacation register"
-      ;    
     }
   }
 

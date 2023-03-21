@@ -14,6 +14,6 @@ export default {}
     width: 100%;
     height: 100%;
     position: relative;
-    border: var(--border-width) solid var(--accent-opacity-75);
+    border: var(--border-width) solid var(--accent);
   }
 </style>

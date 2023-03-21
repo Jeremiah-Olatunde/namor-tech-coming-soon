@@ -140,7 +140,6 @@
   @media screen
   and (min-width: 600px)
   {
-    .main-content { max-width: 100%; margin-bottom: 2rem; }
     .text { width: 100%; span { text-align: left; } }
   }
 

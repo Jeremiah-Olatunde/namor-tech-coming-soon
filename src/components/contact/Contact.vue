@@ -41,16 +41,17 @@
     grid-template-rows: auto min-content;
     row-gap: 2rem;
     grid-template-areas: "map" "form";
+    .demacation { display: none; }
+
   }
 
   @media screen
   and (min-width: 600px)
   {
     .contact {
-      grid-template-columns: 60% 40%;
+      grid-template-columns: 50% 50%;
       grid-template-areas: "map map" "form hex-grid" ;
     }
-    .demacation { display: none; }
   }
 
   @media screen
@@ -63,8 +64,8 @@
       column-gap: var(--gap);
       grid-template-columns: calc(35% - .5px - var(--gap)) 1px calc(65% - .5px - var(--gap));
       grid-template-areas: "form demacation map" ;
+      .demacation { display: block; }
     }
-    .demacation { display: block; }
 
   }
 </style>

@@ -89,7 +89,13 @@
     position: absolute;
   }
 
-  .mask { z-index: 0; background: rgba(0, 0, 0, .75);}
+  .mask { 
+    z-index: 0; 
+    background: linear-gradient(
+      rgba(0, 0, 0, .6) 50%, 
+      rgba(0, 0, 0, .75))
+    ;
+  }
   .overlay { z-index: 1; }
 
   .corner-icon {

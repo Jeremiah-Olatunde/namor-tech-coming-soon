@@ -37,7 +37,7 @@
       <h1 class="main-header">
         <span class="fit-to-container" data-fit-ratio="0.145">get in touch</span>
       </h1>
-      <div class="sub-header fit-to-container" data-fit-ratio="0.0445">we would love to hear from you</div>
+      <div class="sub-header fit-to-container" data-fit-ratio="0.0435">we would love to hear from you</div>
     </header>
     <DesktopHex/>
     <form ref="form" @submit.prevent="sendEmail" action="" class="form">
@@ -59,24 +59,25 @@
   }
 
   .sub-header {
-      font-weight: 600; 
-      color: var(--accent);
-      letter-spacing: .1rem;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 600; 
+    color: var(--accent);
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
   }
 
   .main-header {
     padding: .5rem 0; 
+    display: none;
 
     span {
       display: block;
       font-weight: 700;
       font-variant: small-caps;
       letter-spacing: .1rem;
+      text-align: center;
     }
-
-    .second { display: none; }
   }
 
   .form {
@@ -115,7 +116,17 @@
     }
   }
 
+  @media screen and (min-width: 600px){
+    .form .message { 
+      height: 8rem; 
+    }
+    .main-header { display: block ;}
+  }
+
   @media screen and (min-width: 1100px){
-    // .form .message { height: 8rem; }
+    .form .message { 
+      height: 8rem; 
+    }
+    .main-header { display: block ;}
   }
 </style>

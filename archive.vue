@@ -1,66 +1,89 @@
-<!--       <div data-slider="projects-slider" class="carousel-container">
-        <ul data-wrapper class="carousel">
-          <figure class="item" data-focus>
-            <img src="@/assets/images/dawn.jpg">
-            <figcaption class="image-title"> 
-                <div data-text="CEO" class="main-header">CEO</div>
-                <div data-text="roman&nbsp;frederick" class="sub-header">roman frederick</div>
-            </figcaption>
-          </figure>
+<script lang="ts">
+  import PlusIcon from "@/components/icons/PlusIcon.vue";
+  import HexGrid from "@/components/utils/HexGrid.vue";
+  
+  export default {
+    components: { PlusIcon, HexGrid }
+  } 
+</script>
 
-          <figure class="item">
-            <img src="@/assets/images/giant.jpg">
-            <figcaption class="image-title"> 
-                <div data-text="Project&nbsp;I" class="main-header">Project I</div>
-                <div data-text="Real&nbsp;Estate" class="sub-header">Real Estate</div>
-            </figcaption>
-          </figure>
+<template>
+  <HexGrid>
+    <template #hex-0>
+      <PlusIcon class="plus-icon"/>
+      <div class="mask clip-hex"></div>
+      <img src="@/assets/images/headshot.jpg" alt="" class="image clip-hex">
+    </template>
 
-          <figure class="item">
-            <img src="@/assets/images/rocket.jpg">
-            <figcaption class="image-title"> 
-                <div data-text="Project&nbsp;II" class="main-header">Project II</div>
-                <div data-text="Oilfield&nbsp;services" class="sub-header">Oilfield services</div>
-            </figcaption>
-          </figure>
+    <template #hex-1>
+      <PlusIcon class="plus-icon"/>
+      <div class="mask clip-hex"></div>
+      <img src="@/assets/images/sunset.png" alt="" class="image clip-hex">
+    </template>
 
-          <figure class="item">
-            <img src="@/assets/images/up.jpg">
-            <figcaption class="image-title"> 
-                <div data-text="Project&nbsp;III" class="main-header">Project III</div>
-                <div data-text="Engineering" class="sub-header">Engineering</div>
-            </figcaption>
-          </figure>
+    <template #hex-2>
+      <PlusIcon class="plus-icon"/>
+      <div class="mask clip-hex"></div>
+      <img src="@/assets/images/dawn.jpg" alt="" class="image clip-hex">
+    </template>
 
-          <figure class="item">
-            <img src="@/assets/images/headshot.jpg">
-            <figcaption class="image-title"> 
-                <div data-text="Project&nbsp;IV" class="main-header">Project IV</div>
-                <div data-text="Ancillary&nbsp;services" class="sub-header">Ancillary services</div>
-            </figcaption>
-          </figure>
-        </ul>
-      </div>
+    <template #hex-3>
+      <PlusIcon class="plus-icon"/>
+      <div class="mask clip-hex"></div>
+      <img src="@/assets/images/voyage.jpg" alt="" class="image clip-hex">
+    </template>
 
-      <ul class="icon-list">
-        <li class="item">
-          <div class="icon"><TwitterIcon></TwitterIcon></div>
-          <div class="label">twitter</div>
-        </li>
-        <li class="item">
-          <div class="icon"><FacebookIcon></FacebookIcon></div>
-          <div class="label">facebook</div>
-        </li>
-        <li class="item">
-          <div class="icon"><InstagramIcon></InstagramIcon></div>
-          <div class="label">instagram</div>
-        </li>
-      </ul>
+    <template #hex-4>
+      <PlusIcon class="plus-icon"/>
+      <div class="mask clip-hex"></div>
+      <img src="@/assets/images/rocket.jpg" alt="" class="image clip-hex">
+    </template>
+  </HexGrid>
+</template>
 
-      <InfoIcon class="corner-icon"/>
+<style lang="scss">
+  .hex-grid { display: none; }
+  .image {
+    width: 100%;
+    height: 100%;
+  }
 
-      <div class="pagination">
-        <div class="circle active"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-      </div> -->
+  .mask {
+    content: "";
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, .5);
+
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    transition: background .5s ease;
+  }
+
+  .plus-icon {
+    z-index: 2;
+    aspect-ratio: 1;
+    position: absolute;
+
+    width: 25%;
+    padding: .25rem;
+    aspect-ratio: 1;
+
+    fill: var(--accent);
+    cursor: pointer;
+  }
+
+
+  @media screen
+  and (min-width: 600px)
+  {
+    .hex-grid { display: block; }
+  }
+
+  @media screen
+  and (min-width: 1100px)
+  {
+    .hex-grid { display: none; }
+  }
+</style>

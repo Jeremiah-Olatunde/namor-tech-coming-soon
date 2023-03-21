@@ -54,7 +54,7 @@
   }
 
   .desktop-hex-grid {
-    --hex-w: 7.8125vw;
+    --hex-w: 7.5vw;
     // width: 100%;
     width: calc(3 * var(--hex-w));
     height: calc(var(--hex-w) * 1.155);
