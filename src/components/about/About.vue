@@ -49,6 +49,12 @@
             <figcaption class="image-title"> 
                 <div data-text="CEO" class="main-header">CEO</div>
                 <div data-text="roman&nbsp;frederick" class="sub-header">roman frederick</div>
+                <p class="image-info">
+                  Engr. Frederick Aigbehioria Roman is the controlling shareholder of Namor Technologies Limited.
+                  Having worked in different capacities in the Oil and Gas industry, he retired from Pan Ocean Oil Corporation Nigeria Limited to 
+                  commence operations as Managing Director of Namor Technologies Limited. Due to this experience, he has been able to put up a structure
+                  that is willing and ever ready to delivery quality services.
+                </p>
             </figcaption>
           </figure>
 
@@ -57,6 +63,12 @@
             <figcaption class="image-title"> 
                 <div data-text="Project&nbsp;I" class="main-header">Project I</div>
                 <div data-text="Real&nbsp;Estate" class="sub-header">Real Estate</div>
+                <p class="image-info">
+                  Engr. Frederick Aigbehioria Roman is the controlling shareholder of Namor Technologies Limited.
+                  Having worked in different capacities in the Oil and Gas industry, he retired from Pan Ocean Oil Corporation Nigeria Limited to 
+                  commence operations as Managing Director of Namor Technologies Limited. Due to this experience, he has been able to put up a structure
+                  that is willing and ever ready to delivery quality services.
+                </p>
             </figcaption>
           </figure>
 
@@ -65,6 +77,12 @@
             <figcaption class="image-title"> 
                 <div data-text="Project&nbsp;II" class="main-header">Project II</div>
                 <div data-text="Oilfield&nbsp;services" class="sub-header">Oilfield services</div>
+                <p class="image-info">
+                  Engr. Frederick Aigbehioria Roman is the controlling shareholder of Namor Technologies Limited.
+                  Having worked in different capacities in the Oil and Gas industry, he retired from Pan Ocean Oil Corporation Nigeria Limited to 
+                  commence operations as Managing Director of Namor Technologies Limited. Due to this experience, he has been able to put up a structure
+                  that is willing and ever ready to delivery quality services.
+                </p>
             </figcaption>
           </figure>
 
@@ -73,6 +91,12 @@
             <figcaption class="image-title"> 
                 <div data-text="Project&nbsp;III" class="main-header">Project III</div>
                 <div data-text="Engineering" class="sub-header">Engineering</div>
+                <p class="image-info">
+                  Engr. Frederick Aigbehioria Roman is the controlling shareholder of Namor Technologies Limited.
+                  Having worked in different capacities in the Oil and Gas industry, he retired from Pan Ocean Oil Corporation Nigeria Limited to 
+                  commence operations as Managing Director of Namor Technologies Limited. Due to this experience, he has been able to put up a structure
+                  that is willing and ever ready to delivery quality services.
+                </p>
             </figcaption>
           </figure>
 
@@ -81,6 +105,12 @@
             <figcaption class="image-title"> 
                 <div data-text="Project&nbsp;IV" class="main-header">Project IV</div>
                 <div data-text="Ancillary&nbsp;services" class="sub-header">Ancillary services</div>
+                <p class="image-info">
+                  Engr. Frederick Aigbehioria Roman is the controlling shareholder of Namor Technologies Limited.
+                  Having worked in different capacities in the Oil and Gas industry, he retired from Pan Ocean Oil Corporation Nigeria Limited to 
+                  commence operations as Managing Director of Namor Technologies Limited. Due to this experience, he has been able to put up a structure
+                  that is willing and ever ready to delivery quality services.
+                </p>
             </figcaption>
           </figure>
         </ul>
@@ -109,7 +139,7 @@
         </div>
       </ul>
 
-      <InfoIcon class="corner-icon"/>
+      <a id="info-icon"><InfoIcon class="corner-icon"/></a>
 
       <div class="pagination">
         <div class="circle" :class="{ active: !(focusIndex - 0) }"></div>
@@ -168,28 +198,41 @@
     }
   }
 
-  .corner-icon {
+  #info-icon {
+    display: block;
     height: 2.5rem;
+    position: absolute;
+    fill: var(--accent-opacity-75);
+    top: 0;
+    right: 0;
+    margin: 2rem 2rem;
+  }
+  .corner-icon {
+    padding: .5rem;
+    height: 100%;
     aspect-ratio: 1;
     border-radius: 100%;
     border: 2px solid var(--accent-opacity-75);
-    fill: var(--accent-opacity-75);
-    padding: .5rem;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 2rem;
   }
 
   .image-title {
-    display: none;
+    // display: none;
     position: absolute;
     z-index: 1;
     flex-basis: 100%;
-    margin: 2rem;
+    width: 100%;
+    padding: 2rem;
     bottom: 0;
-    // transition: display 1s;
+    transition: transform 1s ease-out;
 
+    .image-info {
+      position: relative;
+      font-size: 1.1rem;
+      letter-spacing: .15rem;
+      line-height: 1.3;
+      text-align: justify;
+      margin-top: 2rem;
+    }
     .main-header {
       font-size: 4rem;
       text-transform: uppercase;
@@ -264,6 +307,7 @@
       aspect-ratio: 1;
       border-radius: 100%;
       border: 1px solid var(--accent-opacity-75);
+      cursor: pointer;
     }
 
     .active { 
@@ -349,14 +393,15 @@
           align-items: center;
           flex-basis: 50%;
 
-          &[data-focus] .image-title{
-            display: block;
-          }
+          // &[data-focus] .image-title{
+          //   transition: transform 1s ease-out;
+          // }
 
           img {
             object-fit: cover;
             height: 100%;
             width: 100%;
+            transition: filter 0.6s;
           }
       }
     }
