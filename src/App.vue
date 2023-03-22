@@ -11,7 +11,7 @@
     components: { Navbar, Home, About, Contact },
 
     data: function() {
-      return { page: "about" as "home" | "about" | "contact" }
+      return { page: "home" as "home" | "about" | "contact" }
     },
   });
 </script>

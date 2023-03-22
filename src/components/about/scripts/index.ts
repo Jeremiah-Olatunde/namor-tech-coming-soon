@@ -30,15 +30,12 @@ const observer = new MutationObserver(function(mutations) {
 
     
     carousel.addEventListener("touchstart", (event) => {
-      console.log(event.targetTouches);
       startX = event.targetTouches[0].clientX;
     });
     
     carousel.addEventListener("touchmove", (event) => {
       event.preventDefault();
       offsetX = event.targetTouches[0].clientX - startX;
-      console.log(`matrix transform --> ${translateX}`);
-      console.log(`Carousel left position --> ${translateX + offsetX}px`);
       carousel.style.transform = `translateX(${translateX + offsetX}px)`;
     });
     
@@ -46,8 +43,8 @@ const observer = new MutationObserver(function(mutations) {
       const curr_target = event.target as HTMLElement;
       const focus_width: number = curr_target.offsetWidth;
 
-      console.log(`startX : ${startX}, offsetX: ${Math.abs(offsetX)}`);
-      console.log(`Focus width --> ${focus_width}`);
+      // console.log(`startX : ${startX}, offsetX: ${Math.abs(offsetX)}`);
+      // console.log(`Focus width --> ${focus_width}`);
       if ((offsetX < 0) && (offsetX <= -focus_width/2.7) && (slider.currentSlideNo() !== slider.totalSlides())) {
         slider.jumpToSlide(slider.currentSlideNo() + 1);
         translateX -= focus_width;
@@ -85,10 +82,12 @@ const observer = new MutationObserver(function(mutations) {
       let img: HTMLElement;
       
       timerID = setInterval(() => {
-        image_info = document.querySelector('.item[data-focus] .image-info') as HTMLElement;
-        image_desc = document.querySelector('.item[data-focus] .image-title') as HTMLElement;
-        image_desc.style.display = `block`;
-        img = document.body.querySelector('.item[data-focus] img') as HTMLElement;
+        if (document.contains(elem)) {
+          image_info = document.querySelector('.item[data-focus] .image-info') as HTMLElement;
+          image_desc = document.querySelector('.item[data-focus] .image-title') as HTMLElement;
+          image_desc.style.display = `block`;
+          img = document.body.querySelector('.item[data-focus] img') as HTMLElement;
+        }
       });
       
       // function to translate the elements by their respective values and then set the 
@@ -136,7 +135,6 @@ const observer = new MutationObserver(function(mutations) {
     });
   })
     
-  console.log(document.querySelector('.item[data-focus] .image-info'));
   resize.observe(document.querySelector('.item[data-focus] .image-info') as HTMLElement);
 
   } else {
