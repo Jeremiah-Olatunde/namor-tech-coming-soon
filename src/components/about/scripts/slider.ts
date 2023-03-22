@@ -158,6 +158,10 @@ export class Slider {
   
   }
 
+  public totalSlides(): number {
+    return this.wrapper.children.length;
+  }
+
   public jumpToSlide(index: number): void {
 
     const { prev, focus } = this.changeFocus(index);

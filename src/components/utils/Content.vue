@@ -109,7 +109,7 @@
     font-size: 1.25rem;
     text-align: justify;
     letter-spacing: .1rem;    
-
+    
     .highlighted-text {
       line-height: 1;
       display: block;
