@@ -123,14 +123,14 @@
     <Hex/>
 
     <Content>
-      <!-- <template #sub-header>dependable and reliable</template> -->
-      <template #main-header>who we are</template>
+      <template #main-header>
+        <span class="sm md" data-fit>solving problems</span>
+      </template>
       <template #main-text>
-          Namor Technologies Limited is a private company founded on March 23, 2010. It is led by a team of dedicated professionals with more than 34 years of combined industry experience
-          mainly in Oilfield Services, Construction, Engineering and Procurement.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat quae odit min  Quaerat quae odit minima obcaecati dolorum, pariatur dicta ad illo incidunt. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi labore eaque d
       </template>
       <template #highlighted-text>choose us, you will not regret it!</template>
-      <template href="+2348034056935" #button>book a call!</template>
+      <template #button>reach out!</template>
     </Content>
   </div>
 </template>
@@ -140,6 +140,7 @@
     width: 100%;
     height: 100%;
     position: relative;
+    padding: 2rem;
 
     display: grid;
     grid-row-gap: 2rem;
@@ -152,8 +153,18 @@
   and (min-width: 600px)
   {
     .about {
+      padding: 3rem;
+
       grid-template-columns: 50% 50%;
       grid-template-areas: "image image" "main-content hex-grid" ;
+    }
+  }
+
+  @media screen
+  and ((min-width: 1100px) or (orientation: landscape))
+  {
+    .about {
+      padding: 5rem;
     }
   }
 

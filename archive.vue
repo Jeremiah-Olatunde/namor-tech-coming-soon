@@ -1,89 +1,44 @@
-<script lang="ts">
-  import PlusIcon from "@/components/icons/PlusIcon.vue";
-  import HexGrid from "@/components/utils/HexGrid.vue";
-  
-  export default {
-    components: { PlusIcon, HexGrid }
-  } 
-</script>
+      // const map = new Map(Array.from(elements).map(elt => [elt, 0]));
 
-<template>
-  <HexGrid>
-    <template #hex-0>
-      <PlusIcon class="plus-icon"/>
-      <div class="mask clip-hex"></div>
-      <img src="@/assets/images/headshot.jpg" alt="" class="image clip-hex">
-    </template>
+      // for(const elt of elements) map.set(elt, findFitRatio(elt as HTMLElement));
 
-    <template #hex-1>
-      <PlusIcon class="plus-icon"/>
-      <div class="mask clip-hex"></div>
-      <img src="@/assets/images/sunset.png" alt="" class="image clip-hex">
-    </template>
+      // function findFitRatio(elt: HTMLElement) {
+      //   let fontSize = 0;
 
-    <template #hex-2>
-      <PlusIcon class="plus-icon"/>
-      <div class="mask clip-hex"></div>
-      <img src="@/assets/images/dawn.jpg" alt="" class="image clip-hex">
-    </template>
+      //   while(true) {
+      //     const styleObj = getComputedStyle(elt);
+      //     fontSize = parseFloat(styleObj.fontSize);
+      //     const height = parseFloat(styleObj.height);
 
-    <template #hex-3>
-      <PlusIcon class="plus-icon"/>
-      <div class="mask clip-hex"></div>
-      <img src="@/assets/images/voyage.jpg" alt="" class="image clip-hex">
-    </template>
+      //     if(fontSize == height) elt.style.fontSize = `${fontSize + .1}px`;
+      //     else {
+      //       elt.style.fontSize = `${fontSize -= .1}px`
+      //       break;
+      //     };
+      //   }
 
-    <template #hex-4>
-      <PlusIcon class="plus-icon"/>
-      <div class="mask clip-hex"></div>
-      <img src="@/assets/images/rocket.jpg" alt="" class="image clip-hex">
-    </template>
-  </HexGrid>
-</template>
+      //   return fontSize / parseFloat(getComputedStyle(elt).width);        
+      // }
 
-<style lang="scss">
-  .hex-grid { display: none; }
-  .image {
-    width: 100%;
-    height: 100%;
-  }
+      const observer = new ResizeObserver((entries) => {
+        for(const { target } of entries) {
 
-  .mask {
-    content: "";
-    z-index: 1;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, .5);
+          if(!(target instanceof HTMLElement)) return;
+          target.style.wordBreak = "break-all";
+          target.style.fontSize = "0px";
 
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    transition: background .5s ease;
-  }
+          while(true) {
+            const styleObj = getComputedStyle(target);
+            let fontSize = parseFloat(styleObj.fontSize);
+            const height = parseFloat(styleObj.height);
 
-  .plus-icon {
-    z-index: 2;
-    aspect-ratio: 1;
-    position: absolute;
+            if(fontSize == height) target.style.fontSize = `${fontSize + .1}px`;
+            else {
+              target.style.fontSize = `${fontSize -= .1}px`
+              break;
+            };
+          }
+        }
+      });
 
-    width: 25%;
-    padding: .25rem;
-    aspect-ratio: 1;
-
-    fill: var(--accent);
-    cursor: pointer;
-  }
-
-
-  @media screen
-  and (min-width: 600px)
-  {
-    .hex-grid { display: block; }
-  }
-
-  @media screen
-  and (min-width: 1100px)
-  {
-    .hex-grid { display: none; }
-  }
-</style>
+      // for(const elt of elements) observer.observe(elt);

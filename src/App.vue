@@ -11,7 +11,7 @@
     components: { Navbar, Home, About, Contact },
 
     data: function() {
-      return { page: "about" as "home" | "about" | "contact" }
+      return { page: "home" as "home" | "about" | "contact" }
     },
   });
 </script>
@@ -50,7 +50,6 @@
     --navbar-height: 4.5rem;
     --border-width: .5rem;
 
-    padding: 2rem;
     min-width: 350px;
     margin-top: var(--navbar-height);
     width: calc(95% - var(--border-width)); 
@@ -61,27 +60,16 @@
     border: var(--border-width) solid var(--accent);    
     box-shadow: 0 0 2rem rgba(0, 0, 0, .7);
   }
-
+  
   @media screen
-  and (min-width: 600px)
+  and ((min-width: 1100px) or (orientation: landscape))
   {
     .app-container { 
-      --border-width: .5rem;
-      padding: 3rem; 
-    }
-  }
-
-  @media screen
-  and (min-width: 1100px)
-  {
-
-    .app-container { 
-    --border-width: .5rem;
-
-      padding: 5rem; 
       width: auto;
       aspect-ratio: 16 / 9;
       height: calc(85% - var(--border-width));
+      max-width: calc(95% - var(--border-width)); 
+      max-height: calc(95% - var(--border-width)); 
     }
   }
 </style>

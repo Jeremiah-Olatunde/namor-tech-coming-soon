@@ -37,6 +37,7 @@
 <style lang="scss" scoped>
   .contact {
     display: grid;
+    padding: 2rem;
     height: 100%;
     grid-template-rows: auto min-content;
     row-gap: 2rem;
@@ -49,16 +50,18 @@
   and (min-width: 600px)
   {
     .contact {
+      padding: 3rem;
       grid-template-columns: 50% 50%;
       grid-template-areas: "map map" "form hex-grid" ;
     }
   }
 
   @media screen
-  and (min-width: 1100px)
+  and ((min-width: 1100px) or (orientation: landscape))
   { 
 
     .contact {
+      padding: 5rem;
       --gap: 5rem;
       grid-template-rows: 100%;
       column-gap: var(--gap);

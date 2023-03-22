@@ -118,7 +118,7 @@
   }
 
   @media screen
-  and (min-width: 1100px)
+  and ((min-width: 1100px) or (orientation: landscape))
   {
     .register { margin: auto 0 auto auto; }
   }

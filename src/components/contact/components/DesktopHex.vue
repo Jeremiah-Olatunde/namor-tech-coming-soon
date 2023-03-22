@@ -73,6 +73,23 @@
     z-index: 3;
   }
 
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .mask {
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, .5);
+
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    transition: background .5s ease;
+  }
+
   .hex-0 { top: 0; left: 0 }
   .hex-1 { top: 0; left: 33.333% }
   .hex-2 { top: 0; left: 66.666%  }
@@ -86,7 +103,7 @@
 
   .link { 
     position: absolute; 
-    width: 20%; 
+    width: 25%; 
     aspect-ratio: 1;
   
     .icon {
@@ -98,7 +115,7 @@
     }
   }
 
-  @media screen and (min-width: 1100px){
+  @media screen and ((min-width: 1100px) or (orientation: landscape)){
     .desktop-hex-grid { display: block; }
   }
 </style>

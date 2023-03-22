@@ -20,7 +20,7 @@
   }
 
   @media screen
-  and (min-width: 1100px)
+  and ((min-width: 1100px) or (orientation: landscape))
   {
     .demacation { height: 100%; }
   }

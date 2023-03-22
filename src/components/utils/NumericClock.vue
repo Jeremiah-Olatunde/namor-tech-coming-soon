@@ -108,7 +108,7 @@
   }
 
   @media screen
-  and (min-width: 1100px) {
+  and ((min-width: 1100px) or (orientation: landscape)) {
     .clock { margin-top: 5rem; font-size: 1.1vw;}
   }
 </style>

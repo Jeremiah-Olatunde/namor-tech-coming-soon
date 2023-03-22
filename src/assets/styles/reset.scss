@@ -9,6 +9,11 @@
   font-weight: normal;
 }
 
+span {
+  font-weight: inherit;
+  display: block;
+}
+
 ul, ol { list-style: none; }
 
 a {

@@ -27,12 +27,19 @@ and (min-width: 1550px) {
   html { font-size: 14px; }
 }
 
+@media screen
+and (orientation: landscape)
+and (min-height: 900px) {
+  html { font-size: 12px; }
+}
+
+
 body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   background-image: 
-    linear-gradient(0deg, rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)),
+    linear-gradient(0deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),
     url("@/assets/images/crane.jpg") 
   ;
 

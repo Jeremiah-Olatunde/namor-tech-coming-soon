@@ -164,7 +164,7 @@
     .hex-grid { display: block; }
   }
 
-  @media screen and (min-width: 1100px){
+  @media screen and ((min-width: 1100px) or (orientation: landscape)){
     .hex-grid { display: block; }
   }
 </style>

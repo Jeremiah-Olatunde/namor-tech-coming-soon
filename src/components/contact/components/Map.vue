@@ -91,6 +91,7 @@
 
   .mask { 
     z-index: 0; 
+    height: 100%;
     background: linear-gradient(
       rgba(0, 0, 0, .6) 50%, 
       rgba(0, 0, 0, .75))
@@ -153,7 +154,7 @@
   }
 
   @media screen
-  and (min-width: 1100px)
+  and ((min-width: 1100px) or (orientation: landscape))
   {
     .hex-grid { display: none; }
   }

@@ -1,74 +1,84 @@
 <script lang="ts">
+
   export default {
-    mounted: function(){
-      const elements = document.getElementsByClassName("fit-to-container");
-      const map = new Map(Array.from(elements).map(elt => [elt, 0]));
+    mounted: function() {
+      const elements = document.querySelectorAll("[data-fit]");
+      const map = new Map(Array.from(elements).map(elt => [elt.textContent, 0]));
 
-      // for(const elt of elements) map.set(elt, findFitRatio(elt as HTMLElement));
+      for(const elt of elements) map.set(elt.textContent, findFitRatio(elt as HTMLElement));
 
-      // function findFitRatio(elt: HTMLElement) {
-      //   let fontSize = 0;
+      function findFitRatio(elt: HTMLElement) {
+        elt.style.fontSize = "0px";
+        elt.style.wordBreak = "break-all";
 
-      //   while(true) {
-      //     const styleObj = getComputedStyle(elt);
-      //     fontSize = parseFloat(styleObj.fontSize);
-      //     const height = parseFloat(styleObj.height);
+        const ε: number = .5;
+        let δ = 20;
 
-      //     if(fontSize == height) elt.style.fontSize = `${fontSize + .1}px`;
-      //     else {
-      //       elt.style.fontSize = `${fontSize -= .1}px`
-      //       break;
-      //     };
-      //   }
+        let fontSize = 0;
+        let prev = "inc";
 
-      //   return fontSize / parseFloat(getComputedStyle(elt).width);        
-      // }
+        for(let i = 0; i < 25; i++) {
+          const { height } = elt.getBoundingClientRect();
+
+
+          if(Math.round(height) == Math.round(fontSize)){
+            if(δ < ε) break;
+            δ = prev == "inc" ? δ : δ / 2;
+            elt.style.fontSize = `${fontSize += δ}px`;
+            prev = "inc";
+          } else if(height > fontSize) {
+            δ = prev == "dec" ? δ : δ / 2;
+            elt.style.fontSize = `${fontSize -= δ}px`;
+            prev = "dec";
+          }
+
+          console.log(prev, δ, fontSize, height);
+        }
+
+        return fontSize / parseFloat(getComputedStyle(elt).width);        
+      }
 
       const observer = new ResizeObserver((entries) => {
-        for(const { target, contentBoxSize: [ { inlineSize, blockSize } ] } of entries) {
-          if(!(target instanceof HTMLElement)) return;
-          // target.style.fontSize = `${inlineSize * (map.get(target) ?? 0)}px`;
+        for(const { target, contentBoxSize: [ { inlineSize: w, blockSize: h } ] } of entries){
+          const elt = target as HTMLElement;
+          const { textContent: text } = elt;
 
-          let fontSize;
+          if(!map.get(text)) map.set(text, findFitRatio(elt));
+          let fontSize = map.get(text)! * w;
 
-          while(true) {
-            const styleObj = getComputedStyle(target);
-            fontSize = parseFloat(styleObj.fontSize);
-            const height = parseFloat(styleObj.height);
+          elt.style.fontSize = `${fontSize}px`;
 
-            if(fontSize == height) target.style.fontSize = `${fontSize + .1}px`;
-            else {
-              target.style.fontSize = `${fontSize -= .1}px`
-              break;
-            };
-          }
+          if(Math.round(fontSize) == Math.round(h)) continue;
+          else map.set(text, findFitRatio(elt));
         }
       });
 
       for(const elt of elements) observer.observe(elt);
+    
     }
   }
-
 </script>
 
 <template>
   <section class="main-content" style="grid-area: main-content;">
     <header class="header">
-      <p class="sub-header fit-to-container">
+      <p class="sub-header ">
         <slot name="sub-header"></slot>
       </p>
       <h1 class="main-header">
-        <span class="fit-to-container"><slot name="main-header"></slot></span>
+        <slot name="main-header"></slot>
+        <slot name="main-header-1"></slot>
       </h1>
     </header>
     <p class="main-text">
       <slot name="main-text">
       </slot>
 
-      <span class="fit-to-container highlighted-text">
+      <span class="highlighted-text" data-fit>
         <slot name="highlighted-text"></slot>
       </span>
     </p>
+
     <button class="button">
       <slot name="button"></slot>
     </button>
@@ -76,7 +86,7 @@
 </template>
 
 <style lang="scss" scoped>
-  .main-content { width: 100%; margin: 0 auto; max-width: 40rem;}
+  .main-content { width: 100%; margin: 0 auto; max-width: 45rem;}
 
   .header {
     text-align: center;
@@ -91,13 +101,10 @@
 
     .main-header {
       padding: .5rem 0; 
-
-      span {
-        display: block;
-        font-weight: 700;
-        font-variant: small-caps;
-        letter-spacing: .1rem;
-      }
+      display: block;
+      font-weight: 700;
+      font-variant: small-caps;
+      letter-spacing: .1rem;
 
       .second { display: none; }
     }
@@ -144,21 +151,17 @@
   }
 
   @media screen
-  and (min-width: 1100px)
+  and ((min-width: 1100px) or (orientation: landscape))
   {
-    .main-content {  margin: auto; padding-right: 10rem; }
+    .main-content {  margin: auto; margin-left: 0; }
     .header { 
       text-align: left; 
-      .main-header { 
-        text-transform: capitalize; 
-        .second { display: block; }
-      } 
+      .main-header { text-transform: capitalize; } 
     }
-    .text { 
-      width: 80%; 
+    .main-text { 
       margin-top: .5rem; 
       span { max-width: 35rem; }
     }
-    .button { margin-bottom: 0; max-width: 35rem; }
+    .button { margin-bottom: 0; max-width: 30rem; }
   }
 </style>

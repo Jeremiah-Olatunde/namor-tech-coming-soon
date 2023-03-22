@@ -31,7 +31,7 @@
 
 <style lang="scss" scoped>
   @media screen
-  and (min-width: 1100px)
+  and ((min-width: 1100px) or (orientation: landscape))
   {
     .logo-slot { display: none; }
   }
