@@ -216,14 +216,15 @@
   }
 
   .image-title {
-    // display: none;
+    // display: block;
     position: absolute;
     z-index: 1;
     flex-basis: 100%;
     width: 100%;
     padding: 2rem;
     bottom: 0;
-    transition: transform 1s ease-out;
+    // transition: transform 1s ease-out;
+    // visibility: hidden;
 
     .image-info {
       position: relative;

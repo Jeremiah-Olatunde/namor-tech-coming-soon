@@ -76,6 +76,8 @@ const observer = new MutationObserver(function(mutations) {
 
       //calculates the translation amount before setting the display to none;
       const translatey_arr = image_info_arr.map((value) => value.getBoundingClientRect().height) as number[];
+
+      console.log(translatey_arr);
       
       let image_info: HTMLElement;
       let image_desc: HTMLElement;
@@ -85,7 +87,9 @@ const observer = new MutationObserver(function(mutations) {
         if (document.contains(elem)) {
           image_info = document.querySelector('.item[data-focus] .image-info') as HTMLElement;
           image_desc = document.querySelector('.item[data-focus] .image-title') as HTMLElement;
+          // image_desc.style.display = `none`;
           image_desc.style.display = `block`;
+          // image_desc.style.visibility =`visible`;
           img = document.body.querySelector('.item[data-focus] img') as HTMLElement;
         }
       });
@@ -95,7 +99,10 @@ const observer = new MutationObserver(function(mutations) {
       function translateY() {
         image_desc_arr.forEach((elem, index) => {
         elem.style.transform = `translateY(${translatey_arr[index] + parseFloat(getComputedStyle(image_info_arr[index]).marginTop)}px)`;
-        elem.style.display = `none`;
+        if (slider.currentSlideNo() != index) {
+          elem.style.display = `none`;
+        }
+
         });
       }
 
@@ -134,8 +141,11 @@ const observer = new MutationObserver(function(mutations) {
 
     });
   })
-    
-  resize.observe(document.querySelector('.item[data-focus] .image-info') as HTMLElement);
+  
+  for (const elem of image_info_arr) {
+    console.log(elem);
+    resize.observe(elem);
+  }
 
   } else {
     clearInterval(timerID);
