@@ -11,7 +11,7 @@
   <div class="desktop-hex-grid">
     <div class="hex hex-0 clip-hex">
       <div class="hex-content clip-hex">
-        <a class="link">
+        <a class="link" target="_blank" href="https://goo.gl/maps/hA7QGBr8J75FF3jR6">
           <LocationIcon class="icon"/>
         </a>
         <div class="mask clip-hex"></div>
@@ -21,7 +21,7 @@
 
     <div class="hex hex-1 clip-hex">
       <div class="hex-content clip-hex">
-        <a class="link">
+        <a class="link" href="tel:+2348034056935">
           <PhoneIcon class="icon"/>
         </a>
         <div class="mask clip-hex"></div>
@@ -31,7 +31,7 @@
 
     <div class="hex hex-2 clip-hex">
       <div class="hex-content clip-hex">
-        <a class="link">
+        <a class="link" target="_blank" href="mailto:namortech@yahoo.com">
           <EmailIcon class="icon"/>
         </a>
         <div class="mask clip-hex"></div>

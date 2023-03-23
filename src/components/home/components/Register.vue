@@ -28,9 +28,9 @@
     <div class="special-text">
       <span style="letter-spacing: 0;">&mdash;&mdash;</span> be notified when we launch
     </div>
-    <p class="text">Type your email below to be recieve updates form namor technologies</p>
+    <p class="text">Type your email below to recieve updates from Namor Technologies. We don't spam ;)</p>
     <form ref="form" @submit.prevent="sendEmail" action="" class="form">
-      <input type="text" placeholder="your@email.com" name="user_email" class="email">
+      <input type="text" placeholder="example@email.com" name="user_email" class="email">
       <input type="submit" value="ok" class="submit">
     </form>
   </section>

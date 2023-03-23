@@ -13,36 +13,35 @@
     <div class="hex hex-0 clip-hex">
       <div class="hex-content clip-hex">
         <div class="mask clip-hex"></div>
-        <img src="@/assets/images/up.jpg" alt="" class="image clip-hex">  
+        <img src="@/assets/images/giant.jpg" alt="" class="image clip-hex">  
       </div>
     </div>
 
     <div class="hex hex-1 clip-hex">
       <div class="hex-content clip-hex">
         <div class="mask clip-hex"></div>
-        <img src="@/assets/images/rocket.jpg" alt="" class="image clip-hex">
+        <img src="@/assets/images/pipes.jpg" alt="" class="image clip-hex">
       </div>
     </div>
 
     <div class="hex hex-2 clip-hex">
       <div class="hex-content clip-hex">
         <div class="mask clip-hex"></div>
-        <img src="@/assets/images/giant.jpg" alt="" class="image clip-hex">
-        <div class="text">works</div>
+        <img src="@/assets/images/red_pipes.jpeg" alt="" class="image clip-hex">
       </div>
     </div>
 
     <div class="hex hex-3 clip-hex">
       <div class="hex-content clip-hex">
         <div class="mask clip-hex"></div>
-        <img src="@/assets/images/voyage.jpg" alt="" class="image clip-hex">
+        <img src="@/assets/images/tanks.jpeg" alt="" class="image clip-hex">
       </div>
     </div>
 
     <div class="hex hex-4 clip-hex">
       <div class="hex-content clip-hex">
         <div class="mask clip-hex"></div>
-        <img src="@/assets/images/headshot.jpg" alt="" class="image clip-hex">
+        <img src="@/assets/images/yellow_crane.jpeg" alt="" class="image clip-hex">
         <!-- <div class="text">works</div> -->
       </div>
     </div>
@@ -50,14 +49,16 @@
     <div class="hex hex-5 clip-hex">
       <div class="hex-content clip-hex">
         <div class="mask clip-hex"></div>
-        <img src="@/assets/images/worker.jpg" alt="" class="image clip-hex">
+        <img src="@/assets/images/fans.jpeg" alt="" class="image clip-hex">
+        <div class="text">Our</div>
       </div>
     </div>
 
     <div class="hex hex-6 clip-hex">
       <div class="hex-content clip-hex">
         <div class="mask clip-hex"></div>
-        <img src="@/assets/images/sunset.png" alt="" class="image clip-hex">
+        <img src="@/assets/images/oil_tank.jpeg" alt="" class="image clip-hex">
+        <div class="text">works</div>
       </div>
     </div>
 

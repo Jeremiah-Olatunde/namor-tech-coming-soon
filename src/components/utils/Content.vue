@@ -77,9 +77,11 @@
       </span>
     </p>
 
-    <button class="button">
-      <slot name="button"></slot>
-    </button>
+    <a target="_blank" href="mailto:namortech@yahoo.com">
+      <button class="button">
+        <slot name="button"></slot>
+      </button>
+    </a>
   </section>
 </template>
 

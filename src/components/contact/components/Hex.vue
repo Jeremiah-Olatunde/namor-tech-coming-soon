@@ -14,7 +14,7 @@
       <div class="hex-content clip-hex">
         <!-- <PlusIcon class="plus-icon"/> -->
         <div class="mask clip-hex"></div>
-        <img src="@/assets/images/up.jpg" alt="" class="image clip-hex">  
+        <img src="@/assets/images/giant.jpg" alt="" class="image clip-hex">  
         <div class="text">out</div>
       </div>
     </div>
@@ -23,7 +23,7 @@
       <div class="hex-content clip-hex">
         <!-- <PlusIcon class="plus-icon"/> -->
         <div class="mask clip-hex"></div>
-        <img src="@/assets/images/rocket.jpg" alt="" class="image clip-hex">
+        <img src="@/assets/images/pipes.jpg" alt="" class="image clip-hex">
         <div class="text">to</div>
       </div>
     </div>
@@ -31,7 +31,7 @@
     <div class="hex hex-2 clip-hex">
       <div class="hex-content clip-hex">
         <div class="mask clip-hex"></div>
-        <img src="@/assets/images/giant.jpg" alt="" class="image clip-hex">
+        <img src="@/assets/images/red_pipes.jpeg" alt="" class="image clip-hex">
         <div class="text">reach</div>
       </div>
     </div>
@@ -42,14 +42,14 @@
           <LocationIcon class="icon"/>
         </a>
         <div class="mask clip-hex"></div>
-        <img src="@/assets/images/giant.jpg" alt="" class="image clip-hex">
+        <img src="@/assets/images/tanks.jpeg" alt="" class="image clip-hex">
       </div>
     </div>
 
     <div class="hex hex-4 clip-hex">
       <div class="hex-content clip-hex">
         <div class="mask clip-hex"></div>
-        <img src="@/assets/images/headshot.jpg" alt="" class="image clip-hex">
+        <img src="@/assets/images/yellow_crane.jpeg" alt="" class="image clip-hex">
         <div class="text">us</div>
       </div>
     </div>
@@ -60,7 +60,7 @@
           <PhoneIcon class="icon"/>
         </a>
         <div class="mask clip-hex"></div>
-        <img src="@/assets/images/up.jpg" alt="" class="image clip-hex">
+        <img src="@/assets/images/oil_tank.jpeg" alt="" class="image clip-hex">
       </div>
     </div>
 

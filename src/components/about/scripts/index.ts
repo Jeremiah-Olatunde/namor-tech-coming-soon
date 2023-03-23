@@ -8,6 +8,8 @@ let timerID_arr: number[] = [0,0];
 const observer = new MutationObserver(function(mutations) {
   const about: HTMLElement | null = document.querySelector('.about');
   if (document.contains(about)) {
+    const carousel = document.querySelector('.carousel') as HTMLElement;
+
     // initiliazes the slider and begins the slideshow after 6 seconds.
     const slider: Slider = new Slider("projects-slider", {
       focusPosition: "center", 
@@ -20,44 +22,6 @@ const observer = new MutationObserver(function(mutations) {
 
     slider.play();
     slider.pause();
-
-    // Register a TouchEvent Listener on the slider that allows the user to 
-    // slide manually; enable the snapping feature
-    let startX: number;
-    let offsetX: number;
-    let translateX: number = 0;
-
-    const carousel = document.querySelector('.carousel') as HTMLElement;
-
-    
-    carousel.addEventListener("touchstart", (event) => {
-      startX = event.targetTouches[0].clientX;
-    });
-    
-    carousel.addEventListener("touchmove", (event) => {
-      event.preventDefault();
-      offsetX = event.targetTouches[0].clientX - startX;
-      carousel.style.transform = `translateX(${translateX + offsetX}px)`;
-    });
-    
-    carousel.addEventListener("touchend", (event) => {
-      const curr_target = event.target as HTMLElement;
-      const focus_width: number = curr_target.offsetWidth;
-
-      // console.log(`startX : ${startX}, offsetX: ${Math.abs(offsetX)}`);
-      // console.log(`Focus width --> ${focus_width}`);
-      if ((offsetX < 0) && (offsetX <= -focus_width/2.7) && (slider.currentSlideNo() !== slider.totalSlides())) {
-        slider.jumpToSlide(slider.currentSlideNo() + 1);
-        translateX -= focus_width;
-      } 
-      else if ((offsetX >= focus_width/2.7) && (slider.currentSlideNo() !== 0)) {
-        slider.jumpToSlide(slider.currentSlideNo() - 1);
-        translateX += focus_width
-      } else {
-        slider.jumpToSlide(slider.currentSlideNo());
-        startX = 0; offsetX = 0;
-      }
-    })
 
     // Add an event listener to the pagination icons, in order to navigate through the slider
     const page_icons: HTMLElement[] = Array.from(document.querySelectorAll('.circle'));
@@ -86,6 +50,7 @@ const observer = new MutationObserver(function(mutations) {
       
       timerID_arr[0] = setInterval(() => {
         if (document.contains(about)) {
+          // console.log(image_info);
           image_info = document.querySelector('.item[data-focus] .image-info') as HTMLElement;
           image_desc = document.querySelector('.item[data-focus] .image-title') as HTMLElement;
           // image_desc.style.display = `none`;
@@ -141,9 +106,11 @@ const observer = new MutationObserver(function(mutations) {
         });
 
       });
-    }) 
+      
+    }); 
+
     for (const elem of image_info_arr) {
-      console.log(elem);
+      // console.log(elem);
       resize.observe(elem);
     }
 
@@ -157,3 +124,45 @@ const observer = new MutationObserver(function(mutations) {
 });
 
 observer.observe(document.body, options);
+
+
+
+
+// Register a TouchEvent Listener on the slider that allows the user to 
+      // slide manually; enable the snapping feature
+      // let startX: number;
+      // let offsetX: number;
+      // let translateX: number = 0;
+      
+      // carousel.addEventListener("touchstart", (event) => {
+      //   startX = event.targetTouches[0].clientX;
+      // });
+      
+      // carousel.addEventListener("touchmove", (event) => {
+      //   event.preventDefault();
+      //   offsetX = event.targetTouches[0].clientX - startX;
+      //   carousel.style.transform = `translateX(${translateX + offsetX}px)`;
+      // });
+      
+      // carousel.addEventListener("touchend", (event) => {
+      //   const curr_target = event.target as HTMLElement;
+      //   const focus_width: number = curr_target.offsetWidth;
+
+      //   console.log(`offsetX --> ${offsetX}`);
+      //   console.log(`focus_width --> ${focus_width}`);
+
+      //   // console.log(`startX : ${startX}, offsetX: ${Math.abs(offsetX)}`);
+      //   // console.log(`Focus width --> ${focus_width}`);
+      //   if ((offsetX < 0) && (offsetX <= -focus_width/2.7) && (slider.currentSlideNo() !== slider.totalSlides())) {
+      //     slider.jumpToSlide(slider.currentSlideNo() + 1);
+      //     translateX -= focus_width;
+      //   } 
+      //   else if ((offsetX >= focus_width/2.7) && (slider.currentSlideNo() !== 0)) {
+      //     slider.jumpToSlide(slider.currentSlideNo());
+      //     translateX += focus_width
+      //   } else {
+      //     console.log(slider.currentSlideNo());
+      //     slider.jumpToSlide(slider.currentSlideNo());
+      //     startX = 0; offsetX = 0;
+      //   }
+      // })

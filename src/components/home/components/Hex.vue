@@ -13,25 +13,25 @@
   <HexGrid style="grid-area: hex-grid" v-bind:foo="5">
     <template #hex-0>
       <div class="mask clip-hex"></div>
-      <img src="@/assets/images/rocket.jpg" alt="" class="image clip-hex">
+      <img src="@/assets/images/giant.jpg" alt="" class="image clip-hex">
       <div class="text">our</div>
     </template>
 
     <template #hex-2>
-      <img src="@/assets/images/sunset.png" alt="" class="image clip-hex">
+      <img src="@/assets/images/pipes.jpg" alt="" class="image clip-hex">
     </template>
 
     <template #hex-1>
-      <img src="@/assets/images/dawn.jpg" alt="" class="image clip-hex">
+      <img src="@/assets/images/red_pipes.jpeg" alt="" class="image clip-hex">
     </template>
 
     <template #hex-3>
-      <img src="@/assets/images/voyage.jpg" alt="" class="image clip-hex">
+      <img src="@/assets/images/yellow_crane.jpeg" alt="" class="image clip-hex">
     </template>
 
     <template #hex-4>
       <div class="mask clip-hex"></div>
-      <img src="@/assets/images/up.jpg" alt="" class="image clip-hex">
+      <img src="@/assets/images/oil_tank.jpeg" alt="" class="image clip-hex">
       <div class="text">works</div>
     </template>
   </HexGrid>

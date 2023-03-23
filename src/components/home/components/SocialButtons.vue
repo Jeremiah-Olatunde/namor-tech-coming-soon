@@ -3,13 +3,13 @@
   import EmailIcon from "@/components/icons/EmailIcon.vue";
   import PhoneIcon from "@/components/icons/PhoneIcon.vue";
   import ContactIcon from "@/components/icons/ContactIcon.vue";
-  import InstagramIcon from "@/components/icons/InstagramIcon.vue";
+  import LinkedInIcon from "@/components/icons/LinkedInIcon.vue";
   import FacebookIcon from "@/components/icons/FacebookIcon.vue";
   import WhatsAppIcon from "@/components/icons/WhatsAppIcon.vue";
 
   export default {
     components: {
-      WhatsAppIcon, InstagramIcon, FacebookIcon,
+      WhatsAppIcon, LinkedInIcon, FacebookIcon,
       PhoneIcon, EmailIcon, ContactIcon,
     }
   };
@@ -17,12 +17,12 @@
 
 <template>
   <div class="social-buttons" style="grid-area: social-buttons;">
-    <a href="#" class="link center"><WhatsAppIcon class="icon"/></a>
-    <a href="#" class="link center"><InstagramIcon class="icon"/></a>
+    <a target="_blank" href="https://api.whatsapp.com/send?phone=+2348034056935&text=Hello%2C%20Namor!" class="link center"><WhatsAppIcon class="icon"/></a>
+    <a target="_blank" href="https://ng.linkedin.com/in/frederick-roman-65052122" class="link center"><LinkedInIcon class="icon"/></a>
     <a href="#" class="link center"><FacebookIcon class="icon"/></a>
-    <a href="#" class="link center"><PhoneIcon class="icon"/></a>
-    <a href="#" class="link center hidden"><EmailIcon class="icon"/></a>
-    <a href="#" class="link center hidden"><ContactIcon class="icon"/></a>
+    <a href="tel:+2348034056935" class="link center"><PhoneIcon class="icon"/></a>
+    <a target="_blank" href="mailto:namortech@yahoo.com" class="link center hidden"><EmailIcon class="icon"/></a>
+    <a href="tel:+2348034056935" class="link center hidden"><ContactIcon class="icon"/></a>
   </div>
 </template>
 

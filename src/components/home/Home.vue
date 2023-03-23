@@ -30,13 +30,13 @@
     <Register/>
     <SocialButtons/>
     <Demacation/>
-    <AnalogueClock :target="new Date(2023, 2, 28, 18, 30).getTime()"/>
+    <AnalogueClock :target="new Date(2023, 9, 8, 18, 30).getTime()"/>
     <NumericClock/>
     <LogoSlot/>
     <Content>
       <template #main-header>
-        <span class="sm md" data-fit>here for you</span>
-        <span class="lg" data-fit>engineering</span>
+        <span class="sm md" data-fit>Welcome!</span>
+        <span class="lg" data-fit>Business</span>
       </template>
       <template #main-header-1>
         <span class="lg" data-fit>that excites</span>
@@ -46,7 +46,8 @@
         <span class="sub-header md lg" data-fit>dependaple, reliable, trusted</span>
       </template>
       <template #main-text>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat quae odit min  Quaerat quae odit minima obcaecati dolorum, pariatur dicta ad illo incidunt. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi labore eaque d
+          The impending full website launch of Namor Technologies is on the way. In the meantime, feel
+          free to have a brief look about some of the services we offer and the locations we're situated. Kindly subscribe if interested.
       </template>
       <template #highlighted-text>choose us, you will not regret it!</template>
       <template #button>reach out!</template>

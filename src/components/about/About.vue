@@ -7,9 +7,9 @@
   import Hex from "./components/Hex.vue";
 
   import Demacation from "@/components/utils/Demacation.vue";
-  import TwitterIcon from "@/components/icons/TwitterIcon.vue";
-  import InstagramIcon from "@/components/icons/InstagramIcon.vue";
-  import FacebookIcon from "@/components/icons/FacebookIcon.vue";
+  import LinkedInIcon from "@/components/icons/LinkedInIcon.vue";
+  import PhoneIcon from "@/components/icons/PhoneIcon.vue";
+  import EmailIcon from "@/components/icons/EmailIcon.vue";
   import InfoIcon from "@/components/icons/InfoIcon.vue";
 
   import {} from '@/components/about/scripts/index';
@@ -21,9 +21,15 @@
       }
     },
     components: {
-      Image, Content, Demacation,
-      TwitterIcon, FacebookIcon, InstagramIcon, InfoIcon, Hex
-    },
+    Image,
+    Content,
+    Demacation,
+    LinkedInIcon,
+    PhoneIcon,
+    InfoIcon,
+    Hex,
+    EmailIcon
+},
 
     computed: {
       focusIndex() {
@@ -51,10 +57,10 @@
                 <div data-text="CEO" class="main-header">CEO</div>
                 <div data-text="roman&nbsp;frederick" class="sub-header">roman frederick</div>
                 <p class="image-info">
-                  Engr. Frederick Aigbehioria Roman is the controlling shareholder of Namor Technologies Limited.
-                  Having worked in different capacities in the Oil and Gas industry, he retired from Pan Ocean Oil Corporation Nigeria Limited to 
-                  commence operations as Managing Director of Namor Technologies Limited. Due to this experience, he has been able to put up a structure
-                  that is willing and ever ready to delivery quality services.
+                  Engr. Frederick A. Roman is the CEO of Namor Tech. Ltd.
+                  He retired from Pan Ocean Oil Corporation Limited to 
+                  commence operations as Managing Director of Namor Tech. This experience allowed him put up a structure
+                  that is willing and ever ready to deliver quality services.
                 </p>
             </figcaption>
           </figure>
@@ -63,12 +69,13 @@
             <img src="@/assets/images/pipes.jpg">
             <figcaption class="image-title"> 
                 <div data-text="Project&nbsp;I" class="main-header">Project I</div>
-                <div data-text="Real&nbsp;Estate" class="sub-header">Real Estate</div>
+                <div data-text="Engineering" class="sub-header">Engineering</div>
                 <p class="image-info">
-                  Engr. Frederick Aigbehioria Roman is the controlling shareholder of Namor Technologies Limited.
-                  Having worked in different capacities in the Oil and Gas industry, he retired from Pan Ocean Oil Corporation Nigeria Limited to 
-                  commence operations as Managing Director of Namor Technologies Limited. Due to this experience, he has been able to put up a structure
-                  that is willing and ever ready to delivery quality services.
+                  <ul>
+                    <li class="list-item"><span class="fancy-title">Description <span class="dash">&mdash; </span></span> Completed Satellite Manifold</li>
+                    <li class="list-item"><span class="fancy-title">Location <span class="dash">&mdash; </span></span> Obi Anyima, Delta State, Nigeria.</li>
+                    <li class="list-item"><span class="fancy-title">Date <span class="dash">&mdash; </span></span> January, 2019</li>
+                  </ul>
                 </p>
             </figcaption>
           </figure>
@@ -77,12 +84,13 @@
             <img src="@/assets/images/red_pipes.jpeg">
             <figcaption class="image-title"> 
                 <div data-text="Project&nbsp;II" class="main-header">Project II</div>
-                <div data-text="Oilfield&nbsp;services" class="sub-header">Oilfield services</div>
+                <div data-text="Procurement&nbsp;and&nbsp;construction" class="sub-header">Oilfield services</div>
                 <p class="image-info">
-                  Engr. Frederick Aigbehioria Roman is the controlling shareholder of Namor Technologies Limited.
-                  Having worked in different capacities in the Oil and Gas industry, he retired from Pan Ocean Oil Corporation Nigeria Limited to 
-                  commence operations as Managing Director of Namor Technologies Limited. Due to this experience, he has been able to put up a structure
-                  that is willing and ever ready to delivery quality services.
+                  <ul>
+                    <li class="list-item"><span class="fancy-title">Description <span class="dash">&mdash;</span></span> Fabrication and Installation of Field Satellite Manifold</li>
+                    <li class="list-item"><span class="fancy-title">Location <span class="dash">&mdash;</span></span> Obi Anyima, Delta State, Nigeria.</li>
+                    <li class="list-item"><span class="fancy-title">Date <span class="dash">&mdash;</span></span> January, 2019</li>
+                  </ul>
                 </p>
             </figcaption>
           </figure>
@@ -93,10 +101,11 @@
                 <div data-text="Project&nbsp;III" class="main-header">Project III</div>
                 <div data-text="Engineering" class="sub-header">Engineering</div>
                 <p class="image-info">
-                  Engr. Frederick Aigbehioria Roman is the controlling shareholder of Namor Technologies Limited.
-                  Having worked in different capacities in the Oil and Gas industry, he retired from Pan Ocean Oil Corporation Nigeria Limited to 
-                  commence operations as Managing Director of Namor Technologies Limited. Due to this experience, he has been able to put up a structure
-                  that is willing and ever ready to delivery quality services.
+                  <ul>
+                    <li class="list-item"><span class="fancy-title">Description <span class="dash">&mdash;</span></span> Installation and Commissioning of MCC skid</li>
+                    <li class="list-item"><span class="fancy-title">Location <span class="dash">&mdash;</span></span> Owa Alidinma Flowstation OML 147, Delta State, Nigeria.</li>
+                    <li class="list-item"><span class="fancy-title">Date <span class="dash">&mdash;</span></span> December 2018.</li>
+                  </ul>
                 </p>
             </figcaption>
           </figure>
@@ -105,12 +114,13 @@
             <img src="@/assets/images/yellow_crane.jpeg">
             <figcaption class="image-title"> 
                 <div data-text="Project&nbsp;IV" class="main-header">Project IV</div>
-                <div data-text="Ancillary&nbsp;services" class="sub-header">Ancillary services</div>
+                <div data-text="Oilfield&nbsp;services" class="sub-header">Ancillary services</div>
                 <p class="image-info">
-                  Engr. Frederick Aigbehioria Roman is the controlling shareholder of Namor Technologies Limited.
-                  Having worked in different capacities in the Oil and Gas industry, he retired from Pan Ocean Oil Corporation Nigeria Limited to 
-                  commence operations as Managing Director of Namor Technologies Limited. Due to this experience, he has been able to put up a structure
-                  that is willing and ever ready to delivery quality services.
+                  <ul>
+                    <li class="list-item"><span class="fancy-title">Description <span class="dash">&mdash;</span></span> Drilling Location Site</li>
+                    <li class="list-item"><span class="fancy-title">Location <span class="dash">&mdash;</span></span> Utu erumu 2 drilling location, Delta State, Nigeria.</li>
+                    <li class="list-item"><span class="fancy-title">Date <span class="dash">&mdash;</span></span> September, 2013.</li>
+                  </ul>
                 </p>
             </figcaption>
           </figure>
@@ -119,24 +129,30 @@
 
       <ul class="icon-list">
         <div class="item-container">
-          <li class="item one">
-            <div class="icon"><TwitterIcon></TwitterIcon></div>
-            <div class="label">twitter</div>
-          </li>
+          <a class="item-links" target="_blank" href="https://ng.linkedin.com/in/frederick-roman-65052122">
+            <li class="item one">
+              <div class="icon"><LinkedInIcon></LinkedInIcon></div>
+              <div class="label">Linkedin</div>
+            </li>
+          </a>
         </div>
 
         <div class="item-container">
-          <li class="item two">
-            <div class="icon"><FacebookIcon></FacebookIcon></div>
-            <div class="label">facebook</div>
-          </li>
+          <a class="item-links" target="_blank" href="mailto:namortech@yahoo.com">
+            <li class="item two">
+              <div class="icon"><EmailIcon></EmailIcon></div>
+              <div class="label">email</div>
+            </li>
+          </a>
         </div>
 
         <div class="item-container">
-          <li class="item three">
-            <div class="icon"><InstagramIcon></InstagramIcon></div>
-            <div class="label">instagram</div>
-          </li>
+          <a class="item-links" href="tel:+2348034056935">
+            <li class="item three">
+              <div class="icon"><PhoneIcon></PhoneIcon></div>
+              <div class="label">Telephone</div>
+            </li>
+          </a>
         </div>
       </ul>
 
@@ -190,9 +206,9 @@
       padding: 3rem;
 
       grid-template-columns: 50% 50%;
-      grid-template-rows: 60% 40%;
+      grid-template-rows: 55% 45%;
       row-gap: 2rem;
-      // place-items: center;
+      place-items: center;
       grid-template-areas: "image image" "main-content hex-grid" ;
     }
   }
@@ -232,7 +248,6 @@
   }
 
   .image-title {
-    // display: block;
     position: absolute;
     z-index: 1;
     flex-basis: 100%;
@@ -242,11 +257,28 @@
 
     .image-info {
       position: relative;
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       letter-spacing: .15rem;
       line-height: 1.3;
       text-align: justify;
       margin-top: 2rem;
+
+      .list-item {
+        font-weight: 500;
+        text-align: left;
+
+        span {
+          display: inline-block;
+        }
+        .fancy-title {
+          display: inline;
+          font-weight: bold;
+
+          .dash {
+            color: var(--accent)
+          }
+        }
+      }
     }
     .main-header {
       font-size: 4rem;
@@ -352,7 +384,14 @@
       align-items: center;
       &:first-child { margin-top: 0; }
 
+      .item-links {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+
       .item {
+        cursor: pointer;
         display: flex;
         position: absolute;
         bottom: 0;
