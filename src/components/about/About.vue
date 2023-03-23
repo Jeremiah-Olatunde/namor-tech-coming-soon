@@ -3,6 +3,7 @@
 
   import Content from "@/components/utils/Content.vue";
   import Image from "@/components/utils/Image.vue";
+  import Demacation from "@/components/utils/Demacation.vue";
 
   import Hex from "./components/Hex.vue";
 
@@ -10,6 +11,8 @@
   import InstagramIcon from "@/components/icons/InstagramIcon.vue";
   import FacebookIcon from "@/components/icons/FacebookIcon.vue";
   import InfoIcon from "@/components/icons/InfoIcon.vue";
+
+
 
   import {} from '@/components/about/scripts/index';
 
@@ -20,7 +23,7 @@
       }
     },
     components: {
-      Image, Content,
+      Image, Content, Demacation,
       TwitterIcon, FacebookIcon, InstagramIcon, InfoIcon, Hex
     },
 
@@ -152,6 +155,7 @@
 
     <Hex/>
 
+    <Demacation/>
     <Content>
       <template #main-header>
         <span class="sm md" data-fit>solving problems</span>
@@ -177,6 +181,9 @@
     grid-template-columns: 100%;
     grid-template-rows:  auto min-content;
     grid-template-areas: "image" "main-content" ;
+
+    .demacation { display: none; }
+
   }
 
   @media screen
@@ -195,6 +202,15 @@
   {
     .about {
       padding: 5rem;
+      --gap: 5rem;
+      grid-template-rows: auto min-content;
+      grid-column-gap: var(--gap);
+      grid-template-columns: calc(35% - .5px - var(--gap)) 1px calc(65% - .5px - var(--gap));
+      grid-template-areas: 
+        "hex-grid demacation image" 
+        "main-content demacation image" 
+      ;
+      .demacation { display: block; }
     }
   }
 

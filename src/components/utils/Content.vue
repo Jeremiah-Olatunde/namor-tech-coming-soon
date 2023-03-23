@@ -31,8 +31,6 @@
             elt.style.fontSize = `${fontSize -= δ}px`;
             prev = "dec";
           }
-
-          console.log(prev, δ, fontSize, height);
         }
 
         return fontSize / parseFloat(getComputedStyle(elt).width);        
@@ -162,6 +160,6 @@
       margin-top: .5rem; 
       span { max-width: 35rem; }
     }
-    .button { margin-bottom: 0; max-width: 30rem; }
+    .button { margin-bottom: 0; max-width: 33rem; }
   }
 </style>

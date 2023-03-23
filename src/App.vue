@@ -23,8 +23,8 @@
     alt="blurred background image of logo"
   >    
 
+  <Navbar @click="(clicked: 'home' | 'about' | 'contact') => page = clicked"/>
   <main class="app-container" v-bind:class="`container-${page}`">
-    <Navbar @click="(clicked: 'home' | 'about' | 'contact') => page = clicked"/>
 
     <template v-if="page == 'home'">
       <Home/>
@@ -50,6 +50,8 @@
     --navbar-height: 4.5rem;
     --border-width: .5rem;
 
+    overflow: hidden;
+
     min-width: 350px;
     margin-top: var(--navbar-height);
     width: calc(95% - var(--border-width)); 
@@ -69,7 +71,7 @@
       aspect-ratio: 16 / 9;
       height: calc(85% - var(--border-width));
       max-width: calc(95% - var(--border-width)); 
-      max-height: calc(95% - var(--border-width)); 
+      // max-height: calc(95% - var(--border-width)); 
     }
   }
 </style>

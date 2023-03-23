@@ -12,7 +12,6 @@
   <div class="hex-grid">
     <div class="hex hex-0 clip-hex">
       <div class="hex-content clip-hex">
-        <!-- <PlusIcon class="plus-icon"/> -->
         <div class="mask clip-hex"></div>
         <img src="@/assets/images/up.jpg" alt="" class="image clip-hex">  
       </div>
@@ -20,7 +19,6 @@
 
     <div class="hex hex-1 clip-hex">
       <div class="hex-content clip-hex">
-        <!-- <PlusIcon class="plus-icon"/> -->
         <div class="mask clip-hex"></div>
         <img src="@/assets/images/rocket.jpg" alt="" class="image clip-hex">
       </div>
@@ -36,7 +34,6 @@
 
     <div class="hex hex-3 clip-hex">
       <div class="hex-content clip-hex">
-        <!-- <PlusIcon class="plus-icon"/> -->
         <div class="mask clip-hex"></div>
         <img src="@/assets/images/voyage.jpg" alt="" class="image clip-hex">
       </div>
@@ -52,7 +49,6 @@
 
     <div class="hex hex-5 clip-hex">
       <div class="hex-content clip-hex">
-        <!-- <PlusIcon class="plus-icon"/> -->
         <div class="mask clip-hex"></div>
         <img src="@/assets/images/worker.jpg" alt="" class="image clip-hex">
       </div>
@@ -60,7 +56,6 @@
 
     <div class="hex hex-6 clip-hex">
       <div class="hex-content clip-hex">
-        <!-- <PlusIcon class="plus-icon"/> -->
         <div class="mask clip-hex"></div>
         <img src="@/assets/images/sunset.png" alt="" class="image clip-hex">
       </div>
@@ -83,7 +78,7 @@
 
   .hex-grid {
     --hex-w: 13vw;
-    width: calc(3 * 13vw);
+    width: calc(3 * var(--hex-w));
     aspect-ratio: 1.039;
     margin: auto 0 auto auto;
     display: none;
@@ -165,6 +160,21 @@
   }
 
   @media screen and ((min-width: 1100px) or (orientation: landscape)){
-    .hex-grid { display: block; }
+    .hex-grid { 
+      display: block;
+      --hex-w: 25%;
+      width: 100%;
+      aspect-ratio: 2;
+      margin: auto;
+    }
+
+
+    .hex-0 { top: 0; left: 0; }
+    .hex-1 { top: 0; left: 25%; }
+    .hex-2 { top: 0; left: 50%; }
+    .hex-3 { top: 0; left: 75%; }
+    .hex-4 { top: 42.857%; left: 12.5%; }
+    .hex-5 { top: 42.857%; left: 37.5%; }
+    .hex-6 { top: 42.857%; left: 62.5%; }
   }
 </style>
