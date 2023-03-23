@@ -21,8 +21,8 @@
       }
     },
     components: {
-      Image, Content,
-      TwitterIcon, FacebookIcon, InstagramIcon, InfoIcon, Hex, Demacation
+      Image, Content, Demacation,
+      TwitterIcon, FacebookIcon, InstagramIcon, InfoIcon, Hex
     },
 
     computed: {
@@ -154,7 +154,6 @@
     <Hex/>
 
     <Demacation/>
-
     <Content>
       <template #main-header>
         <span class="sm md" data-fit>who we are</span>
@@ -193,7 +192,25 @@
       grid-template-columns: 50% 50%;
       grid-template-rows: 60% 40%;
       row-gap: 2rem;
+      // place-items: center;
       grid-template-areas: "image image" "main-content hex-grid" ;
+    }
+  }
+
+  @media screen
+  and ((min-width: 1100px) or (orientation: landscape))
+  {
+    .about {
+      padding: 5rem;
+      --gap: 5rem;
+      grid-template-rows: auto min-content;
+      grid-column-gap: var(--gap);
+      grid-template-columns: calc(35% - .5px - var(--gap)) 1px calc(65% - .5px - var(--gap));
+      grid-template-areas: 
+        "hex-grid demacation image" 
+        "main-content demacation image" 
+      ;
+      .demacation { display: block; }
     }
   }
 

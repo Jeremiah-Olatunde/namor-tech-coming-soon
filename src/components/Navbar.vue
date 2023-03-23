@@ -14,6 +14,22 @@
       click(page: "home" | "about" | "contact"){
         this.$emit('click', this.page = page);
       }
+    },
+    mounted: function() {
+      const container = document.getElementsByClassName("app-container")[0];
+      const navbar = document.getElementsByClassName("navbar")[0];
+
+      if(!(navbar instanceof HTMLElement)) return;
+
+
+      new ResizeObserver((entries) => {
+        for(const { target } of entries){
+          const { top, left, width } = container.getBoundingClientRect();
+          navbar.style.top = `${top}px`;
+          navbar.style.left = `${left}px`;
+          navbar.style.width = `${width}px`;
+        }
+      }).observe(document.documentElement);
     }
   }
 </script>
@@ -43,15 +59,16 @@
 
 <style lang="scss" scoped>
   .navbar {
+    --navbar-height: 4.5rem;
+    --border-width: .5rem;
     position: absolute;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    width: calc(100% + 2 * var(--border-width));
-    top: calc(-1 * var(--navbar-height));
-    left: calc(-1 * var(--border-width));
+    transform: translateY(calc(-100% + var(--border-width)));
+    z-index: 1000;
   }
 
   .nav {

@@ -22,8 +22,8 @@
     alt="blurred background image of logo"
   >    
 
+  <Navbar @click="(clicked: 'home' | 'about' | 'contact') => page = clicked"/>
   <main class="app-container" v-bind:class="`container-${page}`">
-    <Navbar @click="(clicked: 'home' | 'about' | 'contact') => page = clicked"/>
 
     <template v-if="page == 'home'">
       <Home/>
@@ -47,7 +47,9 @@
 
   .app-container {
     --navbar-height: 4.5rem;
-    --border-width: 3px;
+    --border-width: .5rem;
+
+    overflow: hidden;
 
     min-width: 350px;
     width: calc(90% - var(--border-width)); 
@@ -58,5 +60,17 @@
     background: rgba(0, 0, 0, .5);
     border: var(--border-width) solid var(--accent-opacity-75);    
     box-shadow: 0 0 2rem rgba(0, 0, 0, .7);
+  }
+  
+  @media screen
+  and ((min-width: 1100px) or (orientation: landscape))
+  {
+    .app-container { 
+      width: auto;
+      aspect-ratio: 16 / 9;
+      height: calc(85% - var(--border-width));
+      max-width: calc(95% - var(--border-width)); 
+      // max-height: calc(95% - var(--border-width)); 
+    }
   }
 </style>
