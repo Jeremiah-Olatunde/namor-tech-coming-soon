@@ -35,7 +35,7 @@
     <LogoSlot/>
     <Content>
       <template #main-header>
-        <span class="sm md" data-fit>solving problems</span>
+        <span class="sm md" data-fit>here for you</span>
         <span class="lg" data-fit>engineering</span>
       </template>
       <template #main-header-1>

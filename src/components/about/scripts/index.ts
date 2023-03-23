@@ -1,12 +1,13 @@
 import { Slider } from "./slider";
+import {slide_no, detect_hex_click} from "./sync";
 
 const options = { childList: true, subtree: true };
 
-let timerID: number = 0;  
+let timerID_arr: number[] = [0,0];  
 
 const observer = new MutationObserver(function(mutations) {
-  const elem: HTMLElement | null = document.querySelector('.about');
-  if (document.contains(elem)) {
+  const about: HTMLElement | null = document.querySelector('.about');
+  if (document.contains(about)) {
     // initiliazes the slider and begins the slideshow after 6 seconds.
     const slider: Slider = new Slider("projects-slider", {
       focusPosition: "center", 
@@ -83,8 +84,8 @@ const observer = new MutationObserver(function(mutations) {
       let image_desc: HTMLElement;
       let img: HTMLElement;
       
-      timerID = setInterval(() => {
-        if (document.contains(elem)) {
+      timerID_arr[0] = setInterval(() => {
+        if (document.contains(about)) {
           image_info = document.querySelector('.item[data-focus] .image-info') as HTMLElement;
           image_desc = document.querySelector('.item[data-focus] .image-title') as HTMLElement;
           // image_desc.style.display = `none`;
@@ -139,16 +140,19 @@ const observer = new MutationObserver(function(mutations) {
         img.style.filter = `brightness(1)`;
         });
 
-    });
-  })
-  
-  for (const elem of image_info_arr) {
-    console.log(elem);
-    resize.observe(elem);
-  }
+      });
+    }) 
+    for (const elem of image_info_arr) {
+      console.log(elem);
+      resize.observe(elem);
+    }
+
+    // Synchronize the hexagons to the slider
+    detect_hex_click(slider);
+
 
   } else {
-    clearInterval(timerID);
+    clearInterval(timerID_arr[0]);
   }
 });
 

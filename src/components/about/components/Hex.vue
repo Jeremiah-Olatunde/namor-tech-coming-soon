@@ -165,6 +165,6 @@
   }
 
   @media screen and ((min-width: 1100px) or (orientation: landscape)){
-    .hex-grid { display: block; }
+    .hex-grid { display: none; }
   }
 </style>

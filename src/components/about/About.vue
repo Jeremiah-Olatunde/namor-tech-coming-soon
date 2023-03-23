@@ -6,6 +6,7 @@
 
   import Hex from "./components/Hex.vue";
 
+  import Demacation from "@/components/utils/Demacation.vue";
   import TwitterIcon from "@/components/icons/TwitterIcon.vue";
   import InstagramIcon from "@/components/icons/InstagramIcon.vue";
   import FacebookIcon from "@/components/icons/FacebookIcon.vue";
@@ -21,7 +22,7 @@
     },
     components: {
       Image, Content,
-      TwitterIcon, FacebookIcon, InstagramIcon, InfoIcon, Hex
+      TwitterIcon, FacebookIcon, InstagramIcon, InfoIcon, Hex, Demacation
     },
 
     computed: {
@@ -45,7 +46,7 @@
       <div data-slider="projects-slider" class="carousel-container">
         <ul data-wrapper class="carousel">
           <figure class="item" data-focus>
-            <img src="@/assets/images/dawn.jpg">
+            <img src="@/assets/images/giant.jpg">
             <figcaption class="image-title"> 
                 <div data-text="CEO" class="main-header">CEO</div>
                 <div data-text="roman&nbsp;frederick" class="sub-header">roman frederick</div>
@@ -59,7 +60,7 @@
           </figure>
 
           <figure class="item">
-            <img src="@/assets/images/giant.jpg">
+            <img src="@/assets/images/pipes.jpg">
             <figcaption class="image-title"> 
                 <div data-text="Project&nbsp;I" class="main-header">Project I</div>
                 <div data-text="Real&nbsp;Estate" class="sub-header">Real Estate</div>
@@ -73,7 +74,7 @@
           </figure>
 
           <figure class="item">
-            <img src="@/assets/images/rocket.jpg">
+            <img src="@/assets/images/red_pipes.jpeg">
             <figcaption class="image-title"> 
                 <div data-text="Project&nbsp;II" class="main-header">Project II</div>
                 <div data-text="Oilfield&nbsp;services" class="sub-header">Oilfield services</div>
@@ -87,7 +88,7 @@
           </figure>
 
           <figure class="item">
-            <img src="@/assets/images/up.jpg">
+            <img src="@/assets/images/tanks.jpeg">
             <figcaption class="image-title"> 
                 <div data-text="Project&nbsp;III" class="main-header">Project III</div>
                 <div data-text="Engineering" class="sub-header">Engineering</div>
@@ -101,7 +102,7 @@
           </figure>
 
           <figure class="item">
-            <img src="@/assets/images/headshot.jpg">
+            <img src="@/assets/images/yellow_crane.jpeg">
             <figcaption class="image-title"> 
                 <div data-text="Project&nbsp;IV" class="main-header">Project IV</div>
                 <div data-text="Ancillary&nbsp;services" class="sub-header">Ancillary services</div>
@@ -152,12 +153,16 @@
 
     <Hex/>
 
+    <Demacation/>
+
     <Content>
       <template #main-header>
-        <span class="sm md" data-fit>solving problems</span>
+        <span class="sm md" data-fit>who we are</span>
       </template>
       <template #main-text>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat quae odit min  Quaerat quae odit minima obcaecati dolorum, pariatur dicta ad illo incidunt. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi labore eaque d
+          Namor Technologies Limited is a private company incorporated in Nigeria on March 23, 2010.
+          The company is led by a team of dedicated professionals with more than 34 years of industry
+          experience in mainly Oilfield services, Engineering, Real Estate, Procurement and Construction.
       </template>
       <template #highlighted-text>choose us, you will not regret it!</template>
       <template #button>reach out!</template>
@@ -186,15 +191,9 @@
       padding: 3rem;
 
       grid-template-columns: 50% 50%;
+      grid-template-rows: 60% 40%;
+      row-gap: 2rem;
       grid-template-areas: "image image" "main-content hex-grid" ;
-    }
-  }
-
-  @media screen
-  and ((min-width: 1100px) or (orientation: landscape))
-  {
-    .about {
-      padding: 5rem;
     }
   }
 
@@ -223,8 +222,6 @@
     width: 100%;
     padding: 2rem;
     bottom: 0;
-    // transition: transform 1s ease-out;
-    // visibility: hidden;
 
     .image-info {
       position: relative;
@@ -381,7 +378,6 @@
   .carousel-container {
     height: 100%;
     overflow: hidden;
-    // display: flex;
 
     .carousel {
       display: flex;
@@ -405,6 +401,16 @@
             transition: filter 0.6s;
           }
       }
+    }
+  }
+
+  @media screen and (max-height: 734px) {
+    .about {
+      row-gap: 1rem;
+    }
+
+    img {
+      aspect-ratio: 1.7;
     }
   }
 

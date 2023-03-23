@@ -60,7 +60,7 @@
 
     backdrop-filter: blur(5px);
     background: rgba(0, 0, 0, .5);    
-    border: var(--border-width) solid var(--accent);
+    border: var(--border-width) solid var(--accent-opacity-75);
 
     .nav-list {
       height: 100%;
@@ -101,7 +101,7 @@
   }
 
   @media screen
-  and (min-width: 600px) {
+  and (min-width: 1100px) {
     .nav-logo .technologies { display: block; }
   }
 </style>

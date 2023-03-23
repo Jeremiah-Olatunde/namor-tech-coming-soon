@@ -1,4 +1,3 @@
-
 <script lang="ts">
   import { defineComponent } from "vue";
 
@@ -48,28 +47,16 @@
 
   .app-container {
     --navbar-height: 4.5rem;
-    --border-width: .5rem;
+    --border-width: 3px;
 
     min-width: 350px;
+    width: calc(90% - var(--border-width)); 
+    height: calc(90% - var(--border-width));
     margin-top: var(--navbar-height);
-    width: calc(95% - var(--border-width)); 
-    height: calc(92.5% - var(--border-width));
 
     backdrop-filter: blur(3px);
     background: rgba(0, 0, 0, .5);
-    border: var(--border-width) solid var(--accent);    
+    border: var(--border-width) solid var(--accent-opacity-75);    
     box-shadow: 0 0 2rem rgba(0, 0, 0, .7);
-  }
-  
-  @media screen
-  and ((min-width: 1100px) or (orientation: landscape))
-  {
-    .app-container { 
-      width: auto;
-      aspect-ratio: 16 / 9;
-      height: calc(85% - var(--border-width));
-      max-width: calc(95% - var(--border-width)); 
-      max-height: calc(95% - var(--border-width)); 
-    }
   }
 </style>

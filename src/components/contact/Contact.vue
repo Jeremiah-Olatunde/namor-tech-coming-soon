@@ -15,11 +15,11 @@
 
 
   export default {
-    mounted() {
-      let google_maps = document.createElement('script');
-      google_maps.setAttribute('src', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDIctU1VCEym7oVeFaFVOk-0v14dgrZAdk&callback=initMap&v=weekly');
-      document.body.appendChild(google_maps);
-    },
+    // mounted() {
+    //   let google_maps = document.createElement('script');
+    //   google_maps.setAttribute('src', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDIctU1VCEym7oVeFaFVOk-0v14dgrZAdk&callback=initMap&v=weekly');
+    //   document.body.appendChild(google_maps);
+    // },
 
     components: { Form, Map, Image, EmailIcon, PhoneIcon, MagnifyIcon, LocationIcon, Hex, Demacation } 
   }

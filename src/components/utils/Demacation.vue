@@ -9,6 +9,7 @@
 
 <style lang="scss" scoped>
   .demacation {
+    display: none;
     width: 1px; height: 110%;
 
     background-image: linear-gradient(
@@ -22,6 +23,6 @@
   @media screen
   and ((min-width: 1100px) or (orientation: landscape))
   {
-    .demacation { height: 100%; }
+    .demacation { display: block;  height: 100%; }
   }
 </style>

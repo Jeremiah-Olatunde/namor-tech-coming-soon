@@ -50,7 +50,7 @@
       100% 75%,                  
       50% 100%,                  
       0% 75%
-    ) fill-box;
+    );
   }
 
   .desktop-hex-grid {
