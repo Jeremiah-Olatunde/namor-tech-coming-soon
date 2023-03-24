@@ -38,7 +38,7 @@
 
     <div class="hex hex-3 clip-hex">
       <div class="hex-content clip-hex">
-        <a class="link">
+        <a class="link" target="_blank" href="https://goo.gl/maps/hA7QGBr8J75FF3jR6">
           <LocationIcon class="icon"/>
         </a>
         <div class="mask clip-hex"></div>
@@ -56,7 +56,7 @@
 
     <div class="hex hex-5 clip-hex">
       <div class="hex-content clip-hex">
-        <a class="link">
+        <a class="link" href="tel:+2348034056935">
           <PhoneIcon class="icon"/>
         </a>
         <div class="mask clip-hex"></div>
@@ -66,7 +66,9 @@
 
     <div class="hex hex-6 clip-hex">
       <div class="hex-content clip-hex">
-        <EmailIcon class="plus-icon"/>
+        <a class="link" href="mailto:namortech@yahoo.com">
+          <EmailIcon class="plus-icon"/>
+        </a>
         <div class="mask clip-hex"></div>
         <img src="@/assets/images/sunset.png" alt="" class="image clip-hex">
       </div>
@@ -142,7 +144,7 @@
       aspect-ratio: 1;
       position: absolute;
 
-      width: 25%;
+      width: 115%;
       padding: .25rem;
       aspect-ratio: 1;
 

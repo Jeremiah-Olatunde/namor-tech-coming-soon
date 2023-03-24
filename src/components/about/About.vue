@@ -52,7 +52,7 @@
       <div data-slider="projects-slider" class="carousel-container">
         <ul data-wrapper class="carousel">
           <figure class="item" data-focus>
-            <img src="@/assets/images/giant.jpg">
+            <img src="@/assets/images/CEO_namor.jpeg">
             <figcaption class="image-title"> 
                 <div data-text="CEO" class="main-header">CEO</div>
                 <div data-text="roman&nbsp;frederick" class="sub-header">roman frederick</div>

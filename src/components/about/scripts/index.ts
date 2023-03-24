@@ -1,5 +1,5 @@
 import { Slider } from "./slider";
-import {slide_no, detect_hex_click} from "./sync";
+import {detect_hex_click} from "./sync";
 
 const options = { childList: true, subtree: true };
 
@@ -23,6 +23,48 @@ const observer = new MutationObserver(function(mutations) {
     slider.play();
     slider.pause();
 
+    // Register a TouchEvent Listener on the slider that allows the user to 
+    // slide manually; enable the snapping feature
+    let startX: number = 0;
+    let offsetX: number = 0;
+    let translateX: number = 0;
+
+    //function to extract the translateX value from the transform matrix
+    function getTranslateX(element: HTMLElement) {
+      const style = getComputedStyle(element);
+      const matrix = new DOMMatrixReadOnly(style.transform)
+      return matrix.m41;
+    }
+
+    carousel.addEventListener("touchstart", (event) => {
+      startX = event.changedTouches[0].clientX;
+      translateX = getTranslateX(carousel);
+    })
+
+    carousel.addEventListener("touchmove", (event) => {
+      event.preventDefault();
+      offsetX = event.changedTouches[0].clientX - startX;
+      carousel.style.transform = `translateX(${translateX + offsetX}px)`;
+    })
+
+    carousel.addEventListener("touchend", (event) => {
+      const curr_target = event.target as HTMLElement;
+      const focus_width: number = curr_target.offsetWidth;
+
+      if ((offsetX < 0) && (offsetX <= -focus_width/2.7) && (slider.currentSlideNo() !== slider.totalSlides())) {
+        slider.jumpToSlide(slider.currentSlideNo() + 1);
+        
+      }
+
+      else if ((offsetX >= focus_width/2.7) && (slider.currentSlideNo() !== 0)) {
+        slider.jumpToSlide(slider.currentSlideNo() - 1);
+      } else {
+        slider.jumpToSlide(slider.currentSlideNo());
+      }
+
+      offsetX = 0;
+    })
+
     // Add an event listener to the pagination icons, in order to navigate through the slider
     const page_icons: HTMLElement[] = Array.from(document.querySelectorAll('.circle'));
     page_icons.forEach((elem) => elem.addEventListener('click', (event) => {
@@ -42,20 +84,15 @@ const observer = new MutationObserver(function(mutations) {
       //calculates the translation amount before setting the display to none;
       const translatey_arr = image_info_arr.map((value) => value.getBoundingClientRect().height) as number[];
 
-      console.log(translatey_arr);
-      
       let image_info: HTMLElement;
       let image_desc: HTMLElement;
       let img: HTMLElement;
       
       timerID_arr[0] = setInterval(() => {
         if (document.contains(about)) {
-          // console.log(image_info);
           image_info = document.querySelector('.item[data-focus] .image-info') as HTMLElement;
           image_desc = document.querySelector('.item[data-focus] .image-title') as HTMLElement;
-          // image_desc.style.display = `none`;
           image_desc.style.display = `block`;
-          // image_desc.style.visibility =`visible`;
           img = document.body.querySelector('.item[data-focus] img') as HTMLElement;
         }
       });
@@ -66,7 +103,8 @@ const observer = new MutationObserver(function(mutations) {
         image_desc_arr.forEach((elem, index) => {
         elem.style.transform = `translateY(${translatey_arr[index] + parseFloat(getComputedStyle(image_info_arr[index]).marginTop)}px)`;
         if (slider.currentSlideNo() != index) {
-          elem.style.display = `none`;
+          elem.style.display = `none`; 
+          image_info_arr[index].style.marginTop = `2rem`;
         }
 
         });
@@ -91,7 +129,7 @@ const observer = new MutationObserver(function(mutations) {
         img.style.filter = `brightness(0.5)`;
       });
 
-      // Adds an event listener to the carousel; this lowers the text when any area
+      // Adds an event listener to the focus_element; this lowers the text when any area
       // in it is clicked
       carousel.addEventListener('click', () => {
 
